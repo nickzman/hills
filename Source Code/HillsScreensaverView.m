@@ -18,12 +18,12 @@
 #import "Scene.h"
 #import "HillsOpenGLView.h"
 
-#define DEFAULT_LOOK_AHEAD 5.0
-#define DEFAULT_FOG_DENSITY 0.0
-#define DEFAULT_HILLS_HEIGHT 3.75
-#define DEFAULT_CAMERA_HEIGHT 2.0
+#define DEFAULT_LOOK_AHEAD 5.0f
+#define DEFAULT_FOG_DENSITY 0.0f
+#define DEFAULT_HILLS_HEIGHT 3.75f
+#define DEFAULT_CAMERA_HEIGHT 2.0f
 #define DEFAULT_GRID_SIZE 151
-#define DEFAULT_SPEED 12.1
+#define DEFAULT_SPEED 12.1f
 
 @implementation HillsScreensaverView
 
@@ -33,10 +33,10 @@
 
     if (self)
     {
-		NSValue *red = [NSNumber numberWithFloat:1.0]; 
-		NSValue *green = [NSNumber numberWithFloat:1.0]; 
-		NSValue *blue = [NSNumber numberWithFloat:1.0]; 
-		NSValue *alpha = [NSNumber numberWithFloat:1.0]; 
+		NSValue *red = [NSNumber numberWithFloat:1.0f]; 
+		NSValue *green = [NSNumber numberWithFloat:1.0f]; 
+		NSValue *blue = [NSNumber numberWithFloat:1.0f]; 
+		NSValue *alpha = [NSNumber numberWithFloat:1.0f]; 
    
 		NSDictionary *registrationDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
 			[ NSNumber numberWithBool:true ], FSAA_KEY,
@@ -177,7 +177,7 @@
 		[mCameraHeightSlider setFloatValue:camera_height];
 		[mCameraHeightTextField setStringValue:[NSString stringWithFormat:@"%.2f ", camera_height]];
 
-		int grid_size = [defaults integerForKey:GRID_SIZE_KEY];
+		GLsizei grid_size = (GLsizei)[defaults integerForKey:GRID_SIZE_KEY];
 		[mGridSizeSlider setIntValue:grid_size];
 		[mGridSizeTextField setStringValue:[NSString stringWithFormat:@"%d ", grid_size]];
 
@@ -237,12 +237,12 @@
 	[[glView getScene] setLookAhead:look_ahead_distance];
 
 	float fog_density = [defaults floatForKey:FOG_DENSITY_KEY];
-	[[glView getScene] setFogDensity:fog_density * 0.01];
+	[[glView getScene] setFogDensity:fog_density * 0.01f];
 
 	float camera_height = [defaults floatForKey:CAMERA_HEIGHT_KEY];
 	[[glView getScene] setCameraHeight:camera_height];
 
-	int grid_size = [defaults integerForKey:GRID_SIZE_KEY];
+	GLsizei grid_size = (GLsizei)[defaults integerForKey:GRID_SIZE_KEY];
 	[[glView getScene] setGridSize:grid_size];
 
 	NSArray *fog_colour_array = [defaults objectForKey:FOG_COLOUR_KEY];
@@ -347,10 +347,17 @@
 - (IBAction)selectFogColourButton:(id)sender
 {
 	NSColor *color = [[sender color] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+#if CGFLOAT_IS_DOUBLE == 1
+	NSNumber *red = [NSNumber numberWithDouble:[color redComponent]];
+	NSNumber *green = [NSNumber numberWithDouble:[color greenComponent]];
+	NSNumber *blue = [NSNumber numberWithDouble:[color blueComponent]];
+	NSNumber *alpha = [NSNumber numberWithDouble:[color alphaComponent]];
+#else
 	NSNumber *red = [NSNumber numberWithFloat:[color redComponent]];
 	NSNumber *green = [NSNumber numberWithFloat:[color greenComponent]];
 	NSNumber *blue = [NSNumber numberWithFloat:[color blueComponent]];
 	NSNumber *alpha = [NSNumber numberWithFloat:[color alphaComponent]];
+#endif
 
 	NSArray *colarray = [[NSArray alloc] initWithObjects:red, green, blue, alpha, nil];
 
@@ -372,10 +379,10 @@
 	[defaults setFloat:DEFAULT_HILLS_HEIGHT forKey:HILLS_HEIGHT_KEY];
 	[defaults setFloat:DEFAULT_SPEED forKey:SPEED_KEY];
 
-	NSValue *red = [NSNumber numberWithFloat:1.0]; 
-	NSValue *green = [NSNumber numberWithFloat:1.0]; 
-	NSValue *blue = [NSNumber numberWithFloat:1.0]; 
-	NSValue *alpha = [NSNumber numberWithFloat:1.0]; 
+	NSValue *red = [NSNumber numberWithFloat:1.0f]; 
+	NSValue *green = [NSNumber numberWithFloat:1.0f]; 
+	NSValue *blue = [NSNumber numberWithFloat:1.0f]; 
+	NSValue *alpha = [NSNumber numberWithFloat:1.0f]; 
 	[defaults setObject:[NSArray arrayWithObjects:red, green, blue, alpha, nil] forKey:FOG_COLOUR_KEY];
 	
 	[self updateControls];
@@ -406,7 +413,7 @@
 	[mCameraHeightSlider setFloatValue:camera_height];
 	[mCameraHeightTextField setStringValue:[NSString stringWithFormat:@"%.2f ", camera_height]];
 
-	int grid_size = [defaults integerForKey:GRID_SIZE_KEY];
+	GLsizei grid_size = (GLsizei)[defaults integerForKey:GRID_SIZE_KEY];
 	[mGridSizeSlider setIntValue:grid_size];
 	[mGridSizeTextField setStringValue:[NSString stringWithFormat:@"%d ", grid_size]];
 
