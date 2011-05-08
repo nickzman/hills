@@ -59,13 +59,13 @@
 - (void)loadDetailTexture:(NSString*)filename
 {
 	if(filename != nil)
-		mDetailTexture = [Texture textureWithFile: filename];
+		mDetailTexture = [[Texture textureWithFile: filename] retain];
 }
 
 - (void)loadLightingTexture:(NSString*)filename
 {
 	if(filename != nil)
-		mLightTexture = [Texture textureWithFile:filename];
+		mLightTexture = [[Texture textureWithFile:filename] retain];
 }
 
 - (void) loadImage:(NSString *)path
@@ -169,6 +169,7 @@
 				mIndices[j++] = i+1;
 			}
 		}
+		[bitmap release];
 	}
 }
 

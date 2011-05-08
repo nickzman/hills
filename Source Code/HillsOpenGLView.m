@@ -48,8 +48,8 @@
         0
     };
 	
-    NSOpenGLPixelFormat* pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
-
+    NSOpenGLPixelFormat* pixelFormat = [[[NSOpenGLPixelFormat alloc] initWithAttributes:attrs] autorelease];
+	
     self = [super initWithFrame:frameRect pixelFormat:pixelFormat];
 	
     if (self)

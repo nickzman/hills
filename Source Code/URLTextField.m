@@ -108,7 +108,7 @@
 	bool done = false;
 	unsigned int eventMask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
 	NSDate *distantFuture = [NSDate distantFuture];
-	NSPoint mouseLoc = [self convertPoint:[inEvent locationInWindow] fromView:nil];
+	NSPoint mouseLoc;
 
 	while( !done )
 	{

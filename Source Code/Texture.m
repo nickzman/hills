@@ -22,7 +22,7 @@
 
 + (Texture *)textureWithFile: (NSString *)aName
 {
-	return [[Texture alloc] initWithFile: aName];
+	return [[[Texture alloc] initWithFile: aName] autorelease];
 }
 
 - (id)initWithFile: (NSString *)aName

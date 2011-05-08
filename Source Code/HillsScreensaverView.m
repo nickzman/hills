@@ -359,7 +359,7 @@
 	NSNumber *alpha = [NSNumber numberWithFloat:[color alphaComponent]];
 #endif
 
-	NSArray *colarray = [[NSArray alloc] initWithObjects:red, green, blue, alpha, nil];
+	NSArray *colarray = [NSArray arrayWithObjects:red, green, blue, alpha, nil];
 
 	NSString *identifier = [[NSBundle bundleForClass:[self class]] bundleIdentifier];
 	ScreenSaverDefaults *defaults = [ScreenSaverDefaults defaultsForModuleWithName:identifier];
