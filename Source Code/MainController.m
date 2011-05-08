@@ -106,8 +106,8 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
     Scene *scene = [mOpenGLView getScene];
     CGLContextObj cglContext;
     CGDisplayErr err;
-    long oldSwapInterval;
-    long newSwapInterval;
+    GLint oldSwapInterval;
+    GLint newSwapInterval;
 
     // Pixel Format Attributes for the FullScreen NSOpenGLContext
     NSOpenGLPixelFormatAttribute attrs[] = {
@@ -132,7 +132,7 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
 	
 	//CGDisplayBestModeForParameters
 
-    long rendererID;
+    GLint rendererID;
 
     // Create the FullScreen NSOpenGLContext with the attributes listed above.
     NSOpenGLPixelFormat *pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
@@ -242,7 +242,7 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
     
     // Clear the front and back framebuffers before switching out of FullScreen mode. 
 	// (This is not strictly necessary, but avoids an untidy flash of garbage.)
-    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     [fullScreenContext flushBuffer];
     glClear(GL_COLOR_BUFFER_BIT);
@@ -338,8 +338,8 @@ do { \
 		case 'A':
 			if(isAnimating)
 			{
-				double camera_height = [[mOpenGLView getScene] getCameraHeight];
-				camera_height += 0.03;
+				float camera_height = [[mOpenGLView getScene] getCameraHeight];
+				camera_height += 0.03f;
 				[mPrefsController setCameraHeight:camera_height];
 			}
 			break;
@@ -348,8 +348,8 @@ do { \
 		case 'Z':
 			if(isAnimating)
 			{
-				double camera_height = [[mOpenGLView getScene] getCameraHeight];
-				camera_height -= 0.06;
+				float camera_height = [[mOpenGLView getScene] getCameraHeight];
+				camera_height -= 0.06f;
 				[mPrefsController setCameraHeight:camera_height];
 			}
 			break;
@@ -359,7 +359,7 @@ do { \
 			if(isAnimating)
 			{
 				float look_ahead = [[mOpenGLView getScene] getLookAhead];
-				look_ahead += 0.06;
+				look_ahead += 0.06f;
 				[mPrefsController setLookAhead:look_ahead];
 			}
 			break;
@@ -369,7 +369,7 @@ do { \
 			if(isAnimating)
 			{
 				float look_ahead = [[mOpenGLView getScene] getLookAhead];
-				look_ahead -= 0.03;
+				look_ahead -= 0.03f;
 				[mPrefsController setLookAhead:look_ahead];
 			}
 			break;
@@ -378,17 +378,17 @@ do { \
 			if(isAnimating)
 			{
 				// Up Arrow. Speed up.
-				double speed = [[mOpenGLView getScene] getAnimationSpeed];
-				speed += 2.0;
+				float speed = [[mOpenGLView getScene] getAnimationSpeed];
+				speed += 2.0f;
 				
-				if(speed > 50.0)
-					speed = 50.0;
+				if(speed > 50.0f)
+					speed = 50.0f;
 					
 				[mPrefsController setAnimationSpeed:speed];
 			}
 			else
 			{
-				[[[mOpenGLView getScene] camera] moveForwards:0.1];
+				[[[mOpenGLView getScene] camera] moveForwards:0.1f];
 				
 				if(!stayInFullScreenMode)
 					[mOpenGLView setNeedsDisplay:YES];
@@ -400,17 +400,17 @@ do { \
 			if(isAnimating)
 			{
 				// Down Arrow. Slow Down.
-				double speed = [[mOpenGLView getScene] getAnimationSpeed];
-				speed -= 2.0;
+				float speed = [[mOpenGLView getScene] getAnimationSpeed];
+				speed -= 2.0f;
 				
-				if(speed < -5.0)
-					speed = -5.0;
+				if(speed < -5.0f)
+					speed = -5.0f;
 					
 				[mPrefsController setAnimationSpeed:speed];
 			}
 			else
 			{
-				[[[mOpenGLView getScene] camera] moveBackwards:0.1];
+				[[[mOpenGLView getScene] camera] moveBackwards:0.1f];
 
 				if(!stayInFullScreenMode)
 					[mOpenGLView setNeedsDisplay:YES];

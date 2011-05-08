@@ -26,7 +26,7 @@
 
 // The time value is a static member so that the animation is synchronised
 // between the screensaver preview and when you test it in full-screen mode.
-static double smTime = 0.0;
+static double smTime = 0.0f;
 static NSTimeInterval sLastFrameTime = 0.0;
 
 
@@ -57,9 +57,9 @@ static NSTimeInterval sLastFrameTime = 0.0;
  		mSpeed = [defaults floatForKey:SPEED_KEY];
 		mLookAhead = [defaults floatForKey:LOOK_AHEAD_KEY];
 		mHillsHeight = [defaults floatForKey:HILLS_HEIGHT_KEY];
-		mFogDensity = [defaults floatForKey:FOG_DENSITY_KEY] * 0.01;
+		mFogDensity = [defaults floatForKey:FOG_DENSITY_KEY] * 0.01f;
 		mCameraHeight = [defaults floatForKey:CAMERA_HEIGHT_KEY];
-		mGridSize = [defaults integerForKey:GRID_SIZE_KEY];
+		mGridSize = (int)[defaults integerForKey:GRID_SIZE_KEY];
 
 		NSArray *fog_colour_array = [defaults objectForKey:FOG_COLOUR_KEY];
 		mFogColour[0] = [[fog_colour_array objectAtIndex:0] floatValue];
@@ -87,7 +87,7 @@ static NSTimeInterval sLastFrameTime = 0.0;
 
 - (void)setViewportRect:(NSRect)bounds
 {
-    glViewport( bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
+    glViewport((GLfloat)bounds.origin.x, (GLfloat)bounds.origin.y, (GLfloat)bounds.size.width, (GLfloat)bounds.size.height);
 
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
@@ -101,7 +101,7 @@ static NSTimeInterval sLastFrameTime = 0.0;
 {
 	const double radius = 25.0;
 	static double eyeX = 0.0;
-	float eyeY = mCameraHeight;
+	double eyeY = mCameraHeight;
 	static double eyeZ = 0.0;
 	double centerX = 0.0;
 	const double centerY = 0.0;
@@ -109,15 +109,15 @@ static NSTimeInterval sLastFrameTime = 0.0;
 
 	NSTimeInterval currentFrameTime = [[NSDate date] timeIntervalSinceReferenceDate];
 	
-	smTime += (currentFrameTime - sLastFrameTime) * 0.002 * mSpeed;
+	smTime += (currentFrameTime - sLastFrameTime) * 0.002f * mSpeed;
 	
 	sLastFrameTime = currentFrameTime;
 	
-	float xfactor = 0.5;
+	float xfactor = 0.5f;
 	
 	double dx = cos((smTime+xfactor)) * radius - eyeX;
-	double dz = sin(1.7*(smTime+xfactor)) * radius - eyeZ;
-	double d = sqrt (dx*dx+dz*dz);
+	double dz = sin(1.7f*(smTime+xfactor)) * radius - eyeZ;
+	double d = sqrt(dx*dx+dz*dz);
 	dx /= d;
 	dz /= d;
 	
@@ -130,8 +130,8 @@ static NSTimeInterval sLastFrameTime = 0.0;
 
     glPushMatrix();
 
-	[mCamera lookAt_x:centerX y:centerY z:centerZ];
-	[mCamera positionAt_x:eyeX y:eyeY z:eyeZ];
+	[mCamera lookAt_x:(float)centerX y:(float)centerY z:(float)centerZ];
+	[mCamera positionAt_x:(float)eyeX y:(float)eyeY z:(float)eyeZ];
 
     glPopMatrix();
 }
@@ -173,13 +173,13 @@ static NSTimeInterval sLastFrameTime = 0.0;
 
 	if(mHeightField == nil)
 	{
-		mHeightField = [HeightField heightFieldWithFile:@"heightmap.png"
-			detailTexture:@"grass.jpg" lightTexture:@"lightmap.png" gridsize:mGridSize];
+		mHeightField = [[HeightField heightFieldWithFile:@"heightmap.png"
+			detailTexture:@"grass.jpg" lightTexture:@"lightmap.png" gridsize:mGridSize] retain];
 	}
 	
 	glPushMatrix(); // Level 2
 
-	glTranslatef(0, - mHillsHeight * 0.5, 0);
+	glTranslatef(0, - mHillsHeight * 0.5f, 0);
  	glScalef (100.0f, mHillsHeight, 100.0f);
 	[mHeightField render:mWireFrame];
 
@@ -212,7 +212,7 @@ static NSTimeInterval sLastFrameTime = 0.0;
 	mSpeed = speed;
 }
 
-- (double)getAnimationSpeed
+- (float)getAnimationSpeed
 {
 	return mSpeed;
 }

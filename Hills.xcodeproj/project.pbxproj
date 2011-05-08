@@ -519,6 +519,7 @@
 					x86_64,
 				);
 				"GCC_ENABLE_OBJC_GC[arch=x86_64]" = supported;
+				"GCC_VERSION[sdk=macosx10.4][arch=*]" = 4.0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -538,6 +539,7 @@
 					x86_64,
 				);
 				"GCC_ENABLE_OBJC_GC[arch=x86_64]" = supported;
+				"GCC_VERSION[sdk=macosx10.4][arch=*]" = 4.0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

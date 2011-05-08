@@ -58,7 +58,7 @@
 
 - (BOOL)bitmapFromImageRep: (NSBitmapImageRep *)theImage
 {
-    int					bitsPPixel, bytesPRow;
+    long				bitsPPixel, bytesPRow;
     GLubyte				*theImageData;
     GLint				maxTextureSize;
     int					rowNum, destRowNum;
@@ -123,7 +123,7 @@
 	//glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);	// texture blends with object background
 	//glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);		// texture does NOT blend with object background
 	
-	glTexImage2D (GL_TEXTURE_2D, 0, type, _textureSize.width, _textureSize.height, 0, type, GL_UNSIGNED_BYTE, texBytes);
+	glTexImage2D (GL_TEXTURE_2D, 0, type, (GLfloat)_textureSize.width, (GLfloat)_textureSize.height, 0, type, GL_UNSIGNED_BYTE, texBytes);
 	int filter_min, filter_mag;
 	
 	filter_min = (mMipmaps) ? GL_LINEAR_MIPMAP_LINEAR : GL_NEAREST;
@@ -135,7 +135,7 @@
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (_repeat) ? GL_REPEAT : GL_CLAMP);
 	
 	if (mMipmaps)
-		gluBuild2DMipmaps(GL_TEXTURE_2D, type, _textureSize.width, _textureSize.height, type, GL_UNSIGNED_BYTE, texBytes);
+		gluBuild2DMipmaps(GL_TEXTURE_2D, type, (GLfloat)_textureSize.width, (GLfloat)_textureSize.height, type, GL_UNSIGNED_BYTE, texBytes);
 
 }
 

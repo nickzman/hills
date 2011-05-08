@@ -79,7 +79,7 @@
 	{
 		if(mFirstDraw)
 		{
-			long VBL = 1;
+			GLint VBL = 1;
 			CGLSetParameter(CGLGetCurrentContext(),  kCGLCPSwapInterval, &VBL);
 			mFirstDraw = false;
 		}
@@ -124,8 +124,8 @@
     NSPoint newLocation	= [anEvent locationInWindow];
     float angleX, angleY;
 
-    angleX = mDegreesX + (newLocation.x - mLastClickPoint.x);
-    angleY = -mDegreesY + (newLocation.y - mLastClickPoint.y);
+    angleX = mDegreesX + (float)(newLocation.x - mLastClickPoint.x);
+    angleY = -mDegreesY + (float)(newLocation.y - mLastClickPoint.y);
 
 	[[scene camera] rotateByDegrees_x: angleX y: -angleY];
 
@@ -141,7 +141,7 @@
 
 - (void)scrollWheel:(NSEvent *)theEvent
 {
-	[[scene camera] setDistance: [[scene camera] getDistance] - ([theEvent deltaY] * 0.25)];
+	[[scene camera] setDistance: [[scene camera] getDistance] - ((float)[theEvent deltaY] * 0.25f)];
 
     [self setNeedsDisplay: YES];
 

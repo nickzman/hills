@@ -20,7 +20,7 @@
 #import "SkyDome.h"
 #import "Texture.h"
 
-#define DTOR (M_PI/180.0f)
+#define DTOR ((float)M_PI/180.0f)
 #define SQR(x) (x*x)
 
 @implementation SkyDome
@@ -41,11 +41,11 @@
 
 - (void) generateDome
 {
-	const float radius = 75.0;
-	const float dtheta = 15.0;
-	const float dphi = 15.0;
-	const float hTile = 1.0;
-	const float vTile = 1.0;
+	const float radius = 75.0f;
+	const float dtheta = 15.0f;
+	const float dphi = 15.0f;
+	const float hTile = 1.0f;
+	const float vTile = 1.0f;
 	
 	int theta, phi;
 
@@ -212,8 +212,8 @@
 		glTranslatef(0.0f, -5.0f, 0.0f);
 		glRotatef(270, 1.0f, 0.0f, 0.0f);
 
-		float start_colour[3] = {0.6, 0.8, 0.98};
-		float end_colour[3] = {0.067, 0.196, 0.541};
+		float start_colour[3] = {0.6f, 0.8f, 0.98f};
+		float end_colour[3] = {0.067f, 0.196f, 0.541f};
 
 		glShadeModel(GL_SMOOTH);    
 		glBegin(GL_TRIANGLE_STRIP);
@@ -221,7 +221,7 @@
 		int i;
 		for (i=0; i < NumVertices; i++)
 		{
-			float percentage = Vertices[i].z / 40.0;
+			float percentage = Vertices[i].z / 40.0f;
 			
 			float red = ((end_colour[0] - start_colour[0]) * percentage) + start_colour[0];
 			float green = ((end_colour[1] - start_colour[1]) * percentage) + start_colour[1];
@@ -234,7 +234,7 @@
 		}
 
 		glShadeModel(GL_FLAT);    
-		glColor3f(1.0, 1.0, 1.0);
+		glColor3f(1.0f, 1.0f, 1.0f);
 		glEnd();
 
 		glEndList();

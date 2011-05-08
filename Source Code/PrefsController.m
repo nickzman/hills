@@ -18,7 +18,17 @@
 #import "HillsOpenGLView.h"
 #import "Scene.h"
 
-static int CompareDisplayModes(id arg1, id arg2, void *context);
+#ifndef NSINTEGER_DEFINED
+#ifdef NS_BUILD_32_AS_64
+typedef long NSInteger;
+typedef unsigned long NSUInteger;
+#else
+typedef int NSInteger;
+typedef unsigned int NSUInteger;
+#endif
+#endif
+
+static NSInteger CompareDisplayModes(id arg1, id arg2, void *context);
 
 @implementation PrefsController
 
@@ -44,7 +54,7 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 	[mLookAheadTextField setStringValue:[NSString stringWithFormat:@"%.2f ", lookahead]];
 	[mLookAheadSlider setFloatValue:lookahead];
 
-	int gridsize = [[NSUserDefaults standardUserDefaults] integerForKey:GRID_SIZE_KEY];
+	GLsizei gridsize = (GLsizei)[[NSUserDefaults standardUserDefaults] integerForKey:GRID_SIZE_KEY];
 	[mGridSizeTextField setIntValue:gridsize];
 	[mGridSizeSlider setIntValue:gridsize];
 
@@ -69,8 +79,8 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 
 - (void) createResolutionMenu
 {	
-	int prefs_width = [[NSUserDefaults standardUserDefaults] integerForKey:FULLSCREEN_WIDTH_KEY];
-	int prefs_height = [[NSUserDefaults standardUserDefaults] integerForKey:FULLSCREEN_HEIGHT_KEY];
+	NSInteger prefs_width = [[NSUserDefaults standardUserDefaults] integerForKey:FULLSCREEN_WIDTH_KEY];
+	NSInteger prefs_height = [[NSUserDefaults standardUserDefaults] integerForKey:FULLSCREEN_HEIGHT_KEY];
 	bool prefs_stretched = [[NSUserDefaults standardUserDefaults] boolForKey:FULLSCREEN_STRETCHED_KEY];
 	
 	//NSLog(@"Preferences fullscreen resolution: %d x %d", prefs_width, prefs_height);
@@ -79,8 +89,8 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
     NSArray *all_display_modes = [(NSArray *)CGDisplayAvailableModes(kCGDirectMainDisplay) retain];
 	//NSLog(@"Display modes: %@", mDisplayModes);
 	
-	unsigned int all_display_modes_size = [all_display_modes count];
-	unsigned int all_display_modes_index = 0;
+	NSUInteger all_display_modes_size = [all_display_modes count];
+	NSUInteger all_display_modes_index = 0;
 	
 	if(mDisplayModes == nil)
 		mDisplayModes = [[NSMutableArray alloc] init];
@@ -104,8 +114,8 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 
 	[mResolutionPopUpButton removeAllItems];
 	
-	unsigned int display_modes_size = [mDisplayModes count];
-	unsigned int display_modes_index = 0;
+	NSUInteger display_modes_size = [mDisplayModes count];
+	NSUInteger display_modes_index = 0;
 	
 	[mResolutionPopUpButton addItemWithTitle: NSLocalizedStringFromTable (@"DontChange", @"Custom", @"Localized Strings")];
 	[[mResolutionPopUpButton menu] addItem:[NSMenuItem separatorItem]];
@@ -208,7 +218,7 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 	[[NSUserDefaults standardUserDefaults] setFloat:distance forKey:LOOK_AHEAD_KEY];
 
 	float speed = [[mHillsOpenGLView getScene] getAnimationSpeed];
-	[[mHillsOpenGLView getScene] setAnimationSpeed:0.0];
+	[[mHillsOpenGLView getScene] setAnimationSpeed:0.0f];
 	
 	[[mHillsOpenGLView getScene] animate];
 	[mHillsOpenGLView display];
@@ -224,7 +234,7 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 	[[NSUserDefaults standardUserDefaults] setFloat:height forKey:CAMERA_HEIGHT_KEY];
 
 	float speed = [[mHillsOpenGLView getScene] getAnimationSpeed];
-	[[mHillsOpenGLView getScene] setAnimationSpeed:0.0];
+	[[mHillsOpenGLView getScene] setAnimationSpeed:0.0f];
 	
 	[[mHillsOpenGLView getScene] animate];
 	[mHillsOpenGLView display];
@@ -235,12 +245,12 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 - (IBAction)selectFogDensity:(id)sender
 {
 	float fog_density = [sender floatValue];
-	[mFogDensityTextField setStringValue:[NSString stringWithFormat:@"%.3f ", fog_density * 0.01]];
-	[[mHillsOpenGLView getScene] setFogDensity: fog_density * 0.01];
+	[mFogDensityTextField setStringValue:[NSString stringWithFormat:@"%.3f ", fog_density * 0.01f]];
+	[[mHillsOpenGLView getScene] setFogDensity: fog_density * 0.01f];
 	[[NSUserDefaults standardUserDefaults] setFloat:fog_density forKey:FOG_DENSITY_KEY];
 
 	float speed = [[mHillsOpenGLView getScene] getAnimationSpeed];
-	[[mHillsOpenGLView getScene] setAnimationSpeed:0.0];
+	[[mHillsOpenGLView getScene] setAnimationSpeed:0.0f];
 	
 	[mHillsOpenGLView display];
 	[[mHillsOpenGLView getScene] setAnimationSpeed:speed];
@@ -249,11 +259,18 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 - (IBAction)selectFogColour:(id)sender
 {
 	NSColor *color = [[sender color] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
-
+	
+#if CGFLOAT_IS_DOUBLE == 1
+	NSNumber *red = [NSNumber numberWithDouble:[color redComponent]];
+	NSNumber *green = [NSNumber numberWithDouble:[color greenComponent]];
+	NSNumber *blue = [NSNumber numberWithDouble:[color blueComponent]];
+	NSNumber *alpha = [NSNumber numberWithDouble:[color alphaComponent]];
+#else
 	NSNumber *red = [NSNumber numberWithFloat:[color redComponent]];
 	NSNumber *green = [NSNumber numberWithFloat:[color greenComponent]];
 	NSNumber *blue = [NSNumber numberWithFloat:[color blueComponent]];
 	NSNumber *alpha = [NSNumber numberWithFloat:[color alphaComponent]];
+#endif
 
 	NSArray *colarray = [[NSArray alloc] initWithObjects:red, green, blue, alpha, nil];
 
@@ -286,7 +303,7 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 	
 	NSNumber *fogdensity_number = [base_defaults objectForKey:FOG_DENSITY_KEY];
 	[[NSUserDefaults standardUserDefaults] setFloat:[fogdensity_number floatValue] forKey:FOG_DENSITY_KEY];
-	[[mHillsOpenGLView getScene] setFogDensity: [fogdensity_number floatValue] * 0.01];
+	[[mHillsOpenGLView getScene] setFogDensity: [fogdensity_number floatValue] * 0.01f];
 	
 	NSNumber *gridsize_number = [base_defaults objectForKey:GRID_SIZE_KEY];
 	[[NSUserDefaults standardUserDefaults] setInteger:[gridsize_number intValue] forKey:GRID_SIZE_KEY];
@@ -307,10 +324,10 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 
 - (IBAction)selectResolution:(id)sender
 {
-	int index = [mResolutionPopUpButton indexOfSelectedItem];
+	NSInteger index = [mResolutionPopUpButton indexOfSelectedItem];
 	
-	int width = 0;
-	int height = 0;
+	NSInteger width = 0;
+	NSInteger height = 0;
 	bool stretched = false;
 	
 	if(index > 1)
@@ -332,7 +349,7 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 
 - (NSDictionary *) displayMode;
 {
-	int item_index = [mResolutionPopUpButton indexOfSelectedItem];
+	NSInteger item_index = [mResolutionPopUpButton indexOfSelectedItem];
 	
 	NSDictionary *mode = NULL;
 	
@@ -348,7 +365,7 @@ static int CompareDisplayModes(id arg1, id arg2, void *context);
 @end
 
 
-static int CompareDisplayModes(id arg1, id arg2, void *context)
+static NSInteger CompareDisplayModes(id arg1, id arg2, void *context)
 {
     NSDictionary *mode1 = (NSDictionary *)arg1;
     NSDictionary *mode2 = (NSDictionary *)arg2;

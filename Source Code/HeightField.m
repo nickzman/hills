@@ -28,9 +28,9 @@
 + (HeightField *)heightFieldWithFile:	(NSString *)filename
 									detailTexture: (NSString *)detailTexture
 									lightTexture: (NSString *)lightTexture
-									gridsize:(unsigned int) gridsize
+									gridsize:(GLsizei) gridsize
 {
-	HeightField *heightField = [HeightField alloc];
+	HeightField *heightField = [[[HeightField alloc] init] autorelease];
 	
 	if(heightField != nil)
 	{
@@ -89,7 +89,7 @@
 	}
 }
 
-- (void)makeHeightField:(unsigned int)gridsize
+- (void)makeHeightField:(GLsizei)gridsize
 {
     NSBitmapImageRep *bitmap;
 
@@ -106,18 +106,18 @@
 		// size is the number of vertex in a row in the resulting mesh
 		// for example, we can have a 1024x1024 map but we want a 64x64 mesh
 		// so we need to subsample the map
-		unsigned int thegridsize = gridsize;
+		GLsizei thegridsize = gridsize;
 		
 		float step = (float)[bitmap pixelsWide] / (float)gridsize;
 		
 		if (step < 1)
 		{
-			thegridsize = [bitmap pixelsWide];
+			thegridsize = (GLsizei)[bitmap pixelsWide];
 			step = 1;
 		}
 
-		float lighttex_delta = 1.0f / [bitmap pixelsWide];
-		float detailtex_delta = 32.0f / [bitmap pixelsWide];
+		float lighttex_delta = 1.0f / (int)[bitmap pixelsWide];
+		float detailtex_delta = 32.0f / (int)[bitmap pixelsWide];
 		
 		struct vertex v;
 		int i = 0;
@@ -130,7 +130,7 @@
 
 		mVertices = (struct vertex *)malloc(sizeof(struct vertex) * mNumberOfVertices);
 
-		int x, y;
+		GLsizei x, y;
 		for (y=0; y < thegridsize; y++) {
 			for (x=0; x < thegridsize; x++) {
 				i = y*thegridsize + x;
@@ -138,7 +138,7 @@
 				v.z = ( (float) y / (float) thegridsize - 0.5f);
 				int x_pixel = (int) (((float)x * step) + 0.5);
 				int y_pixel = (int) (((float)y * step) + 0.5);
-				int index = (y_pixel * [bitmap pixelsWide]) + x_pixel;
+				int index = (y_pixel * (int)[bitmap pixelsWide]) + x_pixel;
 				v.y = (float)(srcBuffer[index])/256.0f;
 				v.u0 = (float)x*step        * detailtex_delta;
 				v.v0 = 1.0f - (float)y*step * detailtex_delta;

@@ -33,7 +33,7 @@
 	float mHillsHeight;
 	float mLookAhead;
 	float mCameraHeight;
-	int mGridSize;
+	GLsizei mGridSize;
 	float mFogDensity;
 	GLfloat mFogColour[4];
 }
@@ -52,7 +52,7 @@
 - (void) setCameraHeight: (float)height;
 - (float) getCameraHeight;
 - (void) setGridSize: (int)gridsize;
-- (double) getAnimationSpeed;
+- (float) getAnimationSpeed;
 - (void) setAnimate:(BOOL)animate;
 - (BOOL) getAnimate;
 - (void) setFogDensity: (float) fog_density;

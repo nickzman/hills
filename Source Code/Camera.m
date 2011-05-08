@@ -15,6 +15,7 @@
 //	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #import "Camera.h"
+#import <OpenGL/glu.h>
 
 #define	deg2rad(x) ((x)*0.0174532925194f)
 #define	rad2deg(x) ((x)*57.295779514719f)
@@ -23,9 +24,9 @@ inline SVector cartesianToSpherical(CVector cvec)
 {
     SVector	svec;
 
-    svec.theta	= atan2(cvec.z, cvec.x);
-    svec.phi	= atan2(cvec.y, sqrt( (cvec.x * cvec.x) + (cvec.z * cvec.z) ));
-    svec.r		= sqrt( (cvec.x * cvec.x) + 
+    svec.theta	= atan2f(cvec.z, cvec.x);
+    svec.phi	= atan2f(cvec.y, sqrtf( (cvec.x * cvec.x) + (cvec.z * cvec.z) ));
+    svec.r		= sqrtf((cvec.x * cvec.x) + 
 						(cvec.y * cvec.y) +
 						(cvec.z * cvec.z) );
     
@@ -36,9 +37,9 @@ inline CVector sphericalToCartesian(SVector svec)
 {
     CVector	cvec;
 
-    cvec.x	= svec.r * cos(svec.phi) * cos(svec.theta);
-    cvec.y	= svec.r * sin(svec.phi);
-    cvec.z	= svec.r * cos(svec.phi) * sin(svec.theta);
+    cvec.x	= svec.r * cosf(svec.phi) * cosf(svec.theta);
+    cvec.y	= svec.r * sinf(svec.phi);
+    cvec.z	= svec.r * cosf(svec.phi) * sinf(svec.theta);
     
     return cvec;
 }
@@ -138,8 +139,8 @@ inline CVector vectorScale(const float scale, const CVector cvector)
 	// Limit the rotation in the y-axis as beyond this point the world
 	// suddenly flips over. Not sure why this happens!
 	
-	if(phi > 89.0) phi = 89.0;
-	if(phi < -89.0) phi = -89.0;
+	if(phi > 89.0f) phi = 89.0f;
+	if(phi < -89.0f) phi = -89.0f;
 	
 	newPos.theta		= deg2rad(theta);
 	newPos.phi			= deg2rad(phi);
@@ -174,8 +175,8 @@ inline CVector vectorScale(const float scale, const CVector cvector)
 	
 	newPos.r = distance;
 	
-	if(newPos.r < 0.001)
-		newPos.r = 0.0001;
+	if(newPos.r < 0.001f)
+		newPos.r = 0.0001f;
 	
 	mPosition = vectorAdd(sphericalToCartesian(newPos), mLookAt);
 }

@@ -33,7 +33,7 @@ struct vertex
 @interface HeightField : NSObject
 {
 	struct vertex *mVertices;
-	int mNumberOfVertices;
+	GLsizei mNumberOfVertices;
 	
 	GLuint *mIndices;
 	int mNumberOfIndices;
@@ -49,12 +49,12 @@ struct vertex
 + (HeightField *)heightFieldWithFile:	(NSString *)filename
 									detailTexture: (NSString *)detailTexture
 									lightTexture: (NSString *)lightTexture
-									gridsize:(unsigned int) gridsize;
+									gridsize:(GLsizei) gridsize;
 - (id)init;
 - (void)render: (BOOL)wireframe;
 - (void)deleteList;
 - (void)dealloc;
 - (NSImage *) heightImage;
-- (void)makeHeightField:(unsigned int)gridsize;
+- (void)makeHeightField:(GLsizei)gridsize;
 
 @end
