@@ -1,0 +1,62 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {"" = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = HillsOpenGLView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {controller = NSResponder; }; 
+            SUPERCLASS = NSOpenGLView; 
+        }, 
+        {
+            ACTIONS = {selectFullScreen = id; }; 
+            CLASS = MainController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                mHillsWindow = NSWindow; 
+                mOpenGLView = HillsOpenGLView; 
+                mPreferencesWindow = NSPanel; 
+                mPrefsController = PrefsController; 
+            }; 
+            SUPERCLASS = NSResponder; 
+        }, 
+        {
+            ACTIONS = {
+                selectCameraHeight = id; 
+                selectDefaultSettings = id; 
+                selectFogColour = id; 
+                selectFogDensity = id; 
+                selectGridSize = id; 
+                selectHillsHeight = id; 
+                selectLookAhead = id; 
+                selectResolution = id; 
+                selectSpeed = id; 
+            }; 
+            CLASS = PrefsController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                mCameraHeightSlider = id; 
+                mCameraHeightTextField = id; 
+                mFogColourButton = id; 
+                mFogDensitySlider = id; 
+                mFogDensityTextField = id; 
+                mGridSizeSlider = id; 
+                mGridSizeTextField = id; 
+                mHillsHeightSlider = id; 
+                mHillsHeightTextField = id; 
+                mHillsOpenGLView = HillsOpenGLView; 
+                mLookAheadSlider = id; 
+                mLookAheadTextField = id; 
+                mResolutionPopUpButton = NSPopUpButton; 
+                mSpeedSlider = id; 
+                mSpeedTextField = id; 
+            }; 
+            SUPERCLASS = NSResponder; 
+        }
+    ); 
+    IBVersion = 1; 
+}

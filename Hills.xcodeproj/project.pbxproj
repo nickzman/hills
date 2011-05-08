@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8304E91A09F0FFFE00C7AFEB /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 8304E91909F0FFFE00C7AFEB /* Camera.m */; };
+		8304E91B09F0FFFE00C7AFEB /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 8304E91909F0FFFE00C7AFEB /* Camera.m */; };
+		8305B7F309FCE33C000A8C93 /* SkyDome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8305B7F209FCE33C000A8C93 /* SkyDome.m */; };
+		8305B7F409FCE33D000A8C93 /* SkyDome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8305B7F209FCE33C000A8C93 /* SkyDome.m */; };
+		832B872609F6B427004C7376 /* hillsprefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 832B872509F6B427004C7376 /* hillsprefs.png */; };
+		833B941E09D1DB570071DE45 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 833B941D09D1DB570071DE45 /* Credits.html */; };
+		83642E1C09DDEBC90060F3C4 /* grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83B172A309D071AD0051B62F /* grass.jpg */; };
+		83642E1D09DDEBC90060F3C4 /* heightmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B172A409D071AD0051B62F /* heightmap.png */; };
+		83642E1E09DDEBC90060F3C4 /* lightmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B172A509D071AD0051B62F /* lightmap.png */; };
+		83642E2709DDEC590060F3C4 /* URLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E2309DDEC590060F3C4 /* URLTextField.m */; };
+		83642E2809DDEC590060F3C4 /* HillsScreensaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E2609DDEC590060F3C4 /* HillsScreensaverView.m */; };
+		83642E3309DDECB70060F3C4 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E2F09DDECB70060F3C4 /* Scene.m */; };
+		83642E3409DDECB70060F3C4 /* HeightField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3109DDECB70060F3C4 /* HeightField.m */; };
+		83642E3509DDECB70060F3C4 /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3209DDECB70060F3C4 /* Texture.m */; };
+		83642E3609DDECB70060F3C4 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E2F09DDECB70060F3C4 /* Scene.m */; };
+		83642E3709DDECB70060F3C4 /* HeightField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3109DDECB70060F3C4 /* HeightField.m */; };
+		83642E3809DDECB70060F3C4 /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3209DDECB70060F3C4 /* Texture.m */; };
+		83642E3E09DDED120060F3C4 /* HillsOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3B09DDED120060F3C4 /* HillsOpenGLView.m */; };
+		83642E4009DDED120060F3C4 /* HillsOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3B09DDED120060F3C4 /* HillsOpenGLView.m */; };
+		83642E4809DDED810060F3C4 /* ConfigureSheet.nib in Resources */ = {isa = PBXBuildFile; fileRef = 83642E4609DDED810060F3C4 /* ConfigureSheet.nib */; };
+		83642E6009DDEDC70060F3C4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B1727009D070D00051B62F /* OpenGL.framework */; };
+		83642E6909DDEDFA0060F3C4 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83642E6809DDEDFA0060F3C4 /* ScreenSaver.framework */; };
+		83642E8809DDEF9B0060F3C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		83642E9209DDF0AD0060F3C4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		83642FC809DDF0FE0060F3C4 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83642FC709DDF0FE0060F3C4 /* AGL.framework */; };
+		83642FCD09DDF1A80060F3C4 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		83B1725809D0701F0051B62F /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B1724F09D0701F0051B62F /* MainController.m */; };
+		83B1727109D070D00051B62F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B1727009D070D00051B62F /* OpenGL.framework */; };
+		83B172A609D071AD0051B62F /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 83B172A209D071AD0051B62F /* AppIcon.icns */; };
+		83B172A709D071AD0051B62F /* grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83B172A309D071AD0051B62F /* grass.jpg */; };
+		83B172A809D071AD0051B62F /* heightmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B172A409D071AD0051B62F /* heightmap.png */; };
+		83B172A909D071AD0051B62F /* lightmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B172A509D071AD0051B62F /* lightmap.png */; };
+		83E4AA630A371433009A994F /* Custom.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83E4AA610A371433009A994F /* Custom.strings */; };
+		83E75C2309F55BEA00C9B5C4 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E75C2209F55BEA00C9B5C4 /* PrefsController.m */; };
+		83EC53F609F814FE00155E8B /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83EC53F509F814FE00155E8B /* Defaults.plist */; };
+		83F2851A09EFB38500873CCC /* wireframe.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F2851909EFB38500873CCC /* wireframe.png */; };
+		83FB6CC909EE7C6000016801 /* Present.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 83FB6CC609EE7C6000016801 /* Present.tiff */; };
+		83FB6CCA09EE7C6000016801 /* Run.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 83FB6CC709EE7C6000016801 /* Run.tiff */; };
+		83FB6CCB09EE7C6000016801 /* Stop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 83FB6CC809EE7C6000016801 /* Stop.tiff */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Source Code/main.m"; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8304E91809F0FFFE00C7AFEB /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = "Source Code/Camera.h"; sourceTree = "<group>"; };
+		8304E91909F0FFFE00C7AFEB /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Camera.m; path = "Source Code/Camera.m"; sourceTree = "<group>"; };
+		8305B7F109FCE33C000A8C93 /* SkyDome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkyDome.h; path = "Source Code/SkyDome.h"; sourceTree = "<group>"; };
+		8305B7F209FCE33C000A8C93 /* SkyDome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkyDome.m; path = "Source Code/SkyDome.m"; sourceTree = "<group>"; };
+		832B872509F6B427004C7376 /* hillsprefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hillsprefs.png; path = Resources/hillsprefs.png; sourceTree = "<group>"; };
+		833B941D09D1DB570071DE45 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; name = Credits.html; path = Resources/Credits.html; sourceTree = "<group>"; };
+		83564D5609E126DE00422903 /* Hills_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Hills_Prefix.pch; path = "Source Code/Hills_Prefix.pch"; sourceTree = "<group>"; };
+		83564D5709E126FF00422903 /* HillsScreensaver_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = HillsScreensaver_Prefix.pch; path = "Source Code/HillsScreensaver_Prefix.pch"; sourceTree = "<group>"; };
+		83564DC909E1319600422903 /* GNU GPL.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = "GNU GPL.txt"; sourceTree = "<group>"; };
+		83642DE609DDE85A0060F3C4 /* Hills.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hills.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		83642DE709DDE85B0060F3C4 /* HillsSaverInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = HillsSaverInfo.plist; path = Resources/HillsSaverInfo.plist; sourceTree = "<group>"; };
+		83642E2309DDEC590060F3C4 /* URLTextField.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = URLTextField.m; path = "Source Code/URLTextField.m"; sourceTree = "<group>"; };
+		83642E2409DDEC590060F3C4 /* URLTextField.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = URLTextField.h; path = "Source Code/URLTextField.h"; sourceTree = "<group>"; };
+		83642E2509DDEC590060F3C4 /* HillsScreensaverView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = HillsScreensaverView.h; path = "Source Code/HillsScreensaverView.h"; sourceTree = "<group>"; };
+		83642E2609DDEC590060F3C4 /* HillsScreensaverView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = HillsScreensaverView.m; path = "Source Code/HillsScreensaverView.m"; sourceTree = "<group>"; };
+		83642E2D09DDECB70060F3C4 /* HeightField.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = HeightField.h; path = "Source Code/HeightField.h"; sourceTree = "<group>"; };
+		83642E2E09DDECB70060F3C4 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = "Source Code/Texture.h"; sourceTree = "<group>"; };
+		83642E2F09DDECB70060F3C4 /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = Scene.m; path = "Source Code/Scene.m"; sourceTree = "<group>"; };
+		83642E3009DDECB70060F3C4 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Scene.h; path = "Source Code/Scene.h"; sourceTree = "<group>"; };
+		83642E3109DDECB70060F3C4 /* HeightField.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = HeightField.m; path = "Source Code/HeightField.m"; sourceTree = "<group>"; };
+		83642E3209DDECB70060F3C4 /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = Texture.m; path = "Source Code/Texture.m"; sourceTree = "<group>"; };
+		83642E3B09DDED120060F3C4 /* HillsOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = HillsOpenGLView.m; path = "Source Code/HillsOpenGLView.m"; sourceTree = "<group>"; };
+		83642E3C09DDED120060F3C4 /* HillsOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = HillsOpenGLView.h; path = "Source Code/HillsOpenGLView.h"; sourceTree = "<group>"; };
+		83642E4709DDED810060F3C4 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ConfigureSheet.nib; sourceTree = "<group>"; };
+		83642E6809DDEDFA0060F3C4 /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = /System/Library/Frameworks/ScreenSaver.framework; sourceTree = "<absolute>"; };
+		83642FC709DDF0FE0060F3C4 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
+		83B1724E09D0701F0051B62F /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MainController.h; path = "Source Code/MainController.h"; sourceTree = "<group>"; };
+		83B1724F09D0701F0051B62F /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = MainController.m; path = "Source Code/MainController.m"; sourceTree = "<group>"; };
+		83B1727009D070D00051B62F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = SOURCE_ROOT; };
+		83B172A209D071AD0051B62F /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = AppIcon.icns; path = Resources/AppIcon.icns; sourceTree = SOURCE_ROOT; };
+		83B172A309D071AD0051B62F /* grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grass.jpg; path = Resources/grass.jpg; sourceTree = SOURCE_ROOT; };
+		83B172A409D071AD0051B62F /* heightmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heightmap.png; path = Resources/heightmap.png; sourceTree = SOURCE_ROOT; };
+		83B172A509D071AD0051B62F /* lightmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lightmap.png; path = Resources/lightmap.png; sourceTree = SOURCE_ROOT; };
+		83E4AA620A371433009A994F /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Custom.strings; sourceTree = "<group>"; };
+		83E75C2109F55BEA00C9B5C4 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = PrefsController.h; path = "Source Code/PrefsController.h"; sourceTree = "<group>"; };
+		83E75C2209F55BEA00C9B5C4 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = PrefsController.m; path = "Source Code/PrefsController.m"; sourceTree = "<group>"; };
+		83EC53F509F814FE00155E8B /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Defaults.plist; path = Resources/Defaults.plist; sourceTree = "<group>"; };
+		83F2851909EFB38500873CCC /* wireframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wireframe.png; path = Resources/wireframe.png; sourceTree = "<group>"; };
+		83FB6CC609EE7C6000016801 /* Present.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Present.tiff; path = Resources/Present.tiff; sourceTree = "<group>"; };
+		83FB6CC709EE7C6000016801 /* Run.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Run.tiff; path = Resources/Run.tiff; sourceTree = "<group>"; };
+		83FB6CC809EE7C6000016801 /* Stop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Stop.tiff; path = Resources/Stop.tiff; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* HillsAppInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = HillsAppInfo.plist; path = Resources/HillsAppInfo.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Hills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hills.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83642DE409DDE85A0060F3C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83642E6009DDEDC70060F3C4 /* OpenGL.framework in Frameworks */,
+				83642E6909DDEDFA0060F3C4 /* ScreenSaver.framework in Frameworks */,
+				83642E9209DDF0AD0060F3C4 /* Cocoa.framework in Frameworks */,
+				83642FC809DDF0FE0060F3C4 /* AGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				83B1727109D070D00051B62F /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				83F08BF50A3312E80045FD5F /* Common */,
+				83642E1009DDEB2E0060F3C4 /* Application */,
+				83642E0F09DDEB210060F3C4 /* Screensaver */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83642FC709DDF0FE0060F3C4 /* AGL.framework */,
+				83642E6809DDEDFA0060F3C4 /* ScreenSaver.framework */,
+				83B1727009D070D00051B62F /* OpenGL.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Hills.app */,
+				83642DE609DDE85A0060F3C4 /* Hills.saver */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Hills */ = {
+			isa = PBXGroup;
+			children = (
+				83564DC909E1319600422903 /* GNU GPL.txt */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Hills;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				83564D5609E126DE00422903 /* Hills_Prefix.pch */,
+				83564D5709E126FF00422903 /* HillsScreensaver_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				83EC53F509F814FE00155E8B /* Defaults.plist */,
+				832B872509F6B427004C7376 /* hillsprefs.png */,
+				83F2851909EFB38500873CCC /* wireframe.png */,
+				83FB6CC609EE7C6000016801 /* Present.tiff */,
+				83FB6CC709EE7C6000016801 /* Run.tiff */,
+				83FB6CC809EE7C6000016801 /* Stop.tiff */,
+				833B941D09D1DB570071DE45 /* Credits.html */,
+				83B172A209D071AD0051B62F /* AppIcon.icns */,
+				83B172A309D071AD0051B62F /* grass.jpg */,
+				83B172A409D071AD0051B62F /* heightmap.png */,
+				83B172A509D071AD0051B62F /* lightmap.png */,
+				8D1107310486CEB800E47090 /* HillsAppInfo.plist */,
+				83642DE709DDE85B0060F3C4 /* HillsSaverInfo.plist */,
+				83E4AA610A371433009A994F /* Custom.strings */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				83642E4609DDED810060F3C4 /* ConfigureSheet.nib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83642E0F09DDEB210060F3C4 /* Screensaver */ = {
+			isa = PBXGroup;
+			children = (
+				83642E2509DDEC590060F3C4 /* HillsScreensaverView.h */,
+				83642E2609DDEC590060F3C4 /* HillsScreensaverView.m */,
+				83642E2309DDEC590060F3C4 /* URLTextField.m */,
+				83642E2409DDEC590060F3C4 /* URLTextField.h */,
+			);
+			name = Screensaver;
+			sourceTree = "<group>";
+		};
+		83642E1009DDEB2E0060F3C4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				83B1724E09D0701F0051B62F /* MainController.h */,
+				83B1724F09D0701F0051B62F /* MainController.m */,
+				83E75C2109F55BEA00C9B5C4 /* PrefsController.h */,
+				83E75C2209F55BEA00C9B5C4 /* PrefsController.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		83F08BF50A3312E80045FD5F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8304E91809F0FFFE00C7AFEB /* Camera.h */,
+				8304E91909F0FFFE00C7AFEB /* Camera.m */,
+				83642E3009DDECB70060F3C4 /* Scene.h */,
+				83642E2F09DDECB70060F3C4 /* Scene.m */,
+				8305B7F109FCE33C000A8C93 /* SkyDome.h */,
+				8305B7F209FCE33C000A8C93 /* SkyDome.m */,
+				83642E2D09DDECB70060F3C4 /* HeightField.h */,
+				83642E3109DDECB70060F3C4 /* HeightField.m */,
+				83642E2E09DDECB70060F3C4 /* Texture.h */,
+				83642E3209DDECB70060F3C4 /* Texture.m */,
+				83642E3C09DDED120060F3C4 /* HillsOpenGLView.h */,
+				83642E3B09DDED120060F3C4 /* HillsOpenGLView.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83642DE509DDE85A0060F3C4 /* Hills Screensaver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83642DE809DDE85C0060F3C4 /* Build configuration list for PBXNativeTarget "Hills Screensaver" */;
+			buildPhases = (
+				83642DE209DDE85A0060F3C4 /* Resources */,
+				83642DE309DDE85A0060F3C4 /* Sources */,
+				83642DE409DDE85A0060F3C4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hills Screensaver";
+			productName = "Hills Screensaver";
+			productReference = 83642DE609DDE85A0060F3C4 /* Hills.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
+		8D1107260486CEB800E47090 /* Hills Application */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Hills Application" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hills Application";
+			productInstallPath = "$(HOME)/Applications";
+			productName = Hills;
+			productReference = 8D1107320486CEB800E47090 /* Hills.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Hills" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Hills */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Hills Application */,
+				83642DE509DDE85A0060F3C4 /* Hills Screensaver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83642DE209DDE85A0060F3C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83642E1C09DDEBC90060F3C4 /* grass.jpg in Resources */,
+				83642E1D09DDEBC90060F3C4 /* heightmap.png in Resources */,
+				83642E1E09DDEBC90060F3C4 /* lightmap.png in Resources */,
+				83642E4809DDED810060F3C4 /* ConfigureSheet.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				83B172A609D071AD0051B62F /* AppIcon.icns in Resources */,
+				83B172A709D071AD0051B62F /* grass.jpg in Resources */,
+				83B172A809D071AD0051B62F /* heightmap.png in Resources */,
+				83B172A909D071AD0051B62F /* lightmap.png in Resources */,
+				833B941E09D1DB570071DE45 /* Credits.html in Resources */,
+				83642FCD09DDF1A80060F3C4 /* MainMenu.nib in Resources */,
+				83FB6CC909EE7C6000016801 /* Present.tiff in Resources */,
+				83FB6CCA09EE7C6000016801 /* Run.tiff in Resources */,
+				83FB6CCB09EE7C6000016801 /* Stop.tiff in Resources */,
+				83F2851A09EFB38500873CCC /* wireframe.png in Resources */,
+				832B872609F6B427004C7376 /* hillsprefs.png in Resources */,
+				83EC53F609F814FE00155E8B /* Defaults.plist in Resources */,
+				83E4AA630A371433009A994F /* Custom.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83642DE309DDE85A0060F3C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83642E2709DDEC590060F3C4 /* URLTextField.m in Sources */,
+				83642E2809DDEC590060F3C4 /* HillsScreensaverView.m in Sources */,
+				83642E3309DDECB70060F3C4 /* Scene.m in Sources */,
+				83642E3409DDECB70060F3C4 /* HeightField.m in Sources */,
+				83642E3509DDECB70060F3C4 /* Texture.m in Sources */,
+				83642E3E09DDED120060F3C4 /* HillsOpenGLView.m in Sources */,
+				83642E8809DDEF9B0060F3C4 /* main.m in Sources */,
+				8304E91B09F0FFFE00C7AFEB /* Camera.m in Sources */,
+				8305B7F409FCE33D000A8C93 /* SkyDome.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				83B1725809D0701F0051B62F /* MainController.m in Sources */,
+				83642E3609DDECB70060F3C4 /* Scene.m in Sources */,
+				83642E3709DDECB70060F3C4 /* HeightField.m in Sources */,
+				83642E3809DDECB70060F3C4 /* Texture.m in Sources */,
+				83642E4009DDED120060F3C4 /* HillsOpenGLView.m in Sources */,
+				8304E91A09F0FFFE00C7AFEB /* Camera.m in Sources */,
+				83E75C2309F55BEA00C9B5C4 /* PrefsController.m in Sources */,
+				8305B7F309FCE33C000A8C93 /* SkyDome.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+		83642E4609DDED810060F3C4 /* ConfigureSheet.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83642E4709DDED810060F3C4 /* English */,
+			);
+			name = ConfigureSheet.nib;
+			sourceTree = "<group>";
+		};
+		83E4AA610A371433009A994F /* Custom.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83E4AA620A371433009A994F /* English */,
+			);
+			name = Custom.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83642DE909DDE85C0060F3C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Source Code/HillsScreensaver_Prefix.pch";
+				INFOPLIST_FILE = Resources/HillsSaverInfo.plist;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Hills;
+				WRAPPER_EXTENSION = saver;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		83642DEA09DDE85C0060F3C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Source Code/HillsScreensaver_Prefix.pch";
+				INFOPLIST_FILE = Resources/HillsSaverInfo.plist;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Hills;
+				WRAPPER_EXTENSION = saver;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Source Code/Hills_Prefix.pch";
+				INFOPLIST_FILE = Resources/HillsAppInfo.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Hills;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Source Code/Hills_Prefix.pch";
+				INFOPLIST_FILE = Resources/HillsAppInfo.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Hills;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+					x86_64,
+				);
+				"GCC_ENABLE_OBJC_GC[arch=x86_64]" = supported;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.4;
+				"SDKROOT[arch=x86_64]" = macosx10.6;
+				WARNING_CFLAGS = "-Wmost";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+					x86_64,
+				);
+				"GCC_ENABLE_OBJC_GC[arch=x86_64]" = supported;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.4;
+				"SDKROOT[arch=x86_64]" = macosx10.6;
+				WARNING_CFLAGS = "-Wmost";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83642DE809DDE85C0060F3C4 /* Build configuration list for PBXNativeTarget "Hills Screensaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83642DE909DDE85C0060F3C4 /* Debug */,
+				83642DEA09DDE85C0060F3C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Hills Application" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Hills" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

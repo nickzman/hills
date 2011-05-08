@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GridSize</key><integer>151</integer>
+	<key>CameraHeight</key><real>2.0</real>
+	<key>Speed</key><real>12.1</real>
+	<key>LookAhead</key><real>5.0</real>
+	<key>HillsHeight</key><real>3.75</real>
+	<key>FogDensity</key><real>0.0</real>
+	<key>WireFrame</key><false/>
+	<key>Fog</key><false/>
+	<key>FogColour</key><array><real>1.0</real><real>1.0</real><real>1.0</real><real>1.0</real></array>
+</dict>
+</plist>
