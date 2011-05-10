@@ -103,6 +103,42 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
 // We remain in this method until the user exits FullScreen mode.
 - (IBAction) selectFullScreen:(id)sender
 {
+	SInt32 osVersion;
+	
+	Gestalt(gestaltSystemVersion, &osVersion);
+	if (osVersion > 0x1050)	// Leopard & later
+	{
+		NSDictionary *lDisplayMode = [mPrefsController displayMode];
+		
+		[mOpenGLView enterFullScreenMode:[NSScreen mainScreen] withOptions:(lDisplayMode ? [NSDictionary dictionaryWithObject:lDisplayMode forKey:NSFullScreenModeSetting] : nil)];
+		stayInFullScreenMode = YES;
+		
+		while (stayInFullScreenMode)
+		{
+			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+			NSEvent *event;
+			
+			while (event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantPast] inMode:NSDefaultRunLoopMode dequeue:YES])
+			{
+				switch ([event type])
+				{
+					case NSKeyDown:
+						[self keyDown:event];
+						break;
+					case NSLeftMouseDown:
+						// Exit full-screen mode when mouse is clicked
+						stayInFullScreenMode = NO;
+						break;
+					default:
+						break;
+				}
+			}
+			[pool release];
+		}
+		[mOpenGLView exitFullScreenModeWithOptions:nil];
+		return;
+	}
+	
     Scene *scene = [mOpenGLView getScene];
     CGLContextObj cglContext;
     CGDisplayErr err;
