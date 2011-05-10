@@ -44,7 +44,8 @@
         NSOpenGLPFADoubleBuffer,
         NSOpenGLPFAAccelerated,
 		NSOpenGLPFASampleBuffers, (mFSAA ? 1 : 0),
-        NSOpenGLPFASamples, (mFSAA ? 2 : 0),	
+        NSOpenGLPFASamples, (mFSAA ? 2 : 0),
+		NSOpenGLPFAMultisample, (mFSAA ? 1 : 0),
         0
     };
 	
