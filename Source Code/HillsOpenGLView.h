@@ -22,7 +22,6 @@
 {
     Scene *scene;
     IBOutlet NSResponder *controller;
-	bool mFSAA;
 	bool mWireFrame;
 	float mSpeed;
 	bool mFirstDraw;
@@ -31,9 +30,9 @@
 	float mDegreesX;
 	float mDegreesY;
 }
+- (id)initWithFrame:(NSRect)frameRect FSAA:(BOOL)useFSAA;
 
 - (Scene *)getScene;
-- (void)setFSAA:(bool)fsaa;
 - (void)setWireFrame:(bool)wireframe;
 - (void)setRender:(bool)render;
 

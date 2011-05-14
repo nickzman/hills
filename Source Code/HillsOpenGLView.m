@@ -27,9 +27,18 @@
 - initWithFrame:(NSRect)frameRect
 {
 #ifdef SCREENSAVER
+	return [self initWithFrame:frameRect FSAA:NO];
+#else
+	return [self initWithFrame:frameRect FSAA:YES];
+#endif
+}
+
+
+- (id)initWithFrame:(NSRect)frameRect FSAA:(BOOL)useFSAA
+{
+#ifdef SCREENSAVER
 	mRender = false;
 #else
-	mFSAA = true;
 	mWireFrame = false;
 	mRender = true;
 #endif
@@ -43,9 +52,9 @@
         NSOpenGLPFADepthSize, 24,
         NSOpenGLPFADoubleBuffer,
         NSOpenGLPFAAccelerated,
-		NSOpenGLPFASampleBuffers, (mFSAA ? 1 : 0),
-        NSOpenGLPFASamples, (mFSAA ? 2 : 0),
-		NSOpenGLPFAMultisample, (mFSAA ? 1 : 0),
+		NSOpenGLPFASampleBuffers, (useFSAA ? 1 : 0),
+        NSOpenGLPFASamples, (useFSAA ? 2 : 0),
+		NSOpenGLPFAMultisample, (useFSAA ? 1 : 0),
         0
     };
 	
@@ -138,10 +147,6 @@
     [super mouseDragged: anEvent];
 }
 
-- (void)setFSAA:(bool)fsaa
-{
-	mFSAA = fsaa;
-}
 
 - (void)scrollWheel:(NSEvent *)theEvent
 {

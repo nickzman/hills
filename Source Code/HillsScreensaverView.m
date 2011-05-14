@@ -60,24 +60,20 @@
         NSRect newFrame = frame;
 		
 		// Keep the frame size, but zero the origin
-		newFrame.origin.x = 0.0;
-		newFrame.origin.y = 0.0;
+		newFrame.origin.x = 0.0f;
+		newFrame.origin.y = 0.0f;
+		mFSAA = [defaults integerForKey:FSAA_KEY];
+		glView = [[HillsOpenGLView alloc] initWithFrame:newFrame FSAA:mFSAA];
+		[self loadOptions];
 		
-		glView = [[HillsOpenGLView alloc] init];
-
-        if(glView)
-        {
-			[self loadOptions];
+		[self setAutoresizesSubviews:NO];
+		
+		if (glView)
+		{
+			[self addSubview:glView];
 			
-			[glView initWithFrame:newFrame]; 
-
-            [self setAutoresizesSubviews:NO];
-
-            if(glView)
-                [self addSubview:glView];
-				
-            [self setAnimationTimeInterval:0.017];
-        }
+			[self setAnimationTimeInterval:0.017];
+		}
         else
 		{
             NSLog(@"Error: Hills Screen Saver failed to initialize NSOpenGLView!");
@@ -225,7 +221,6 @@
 	mMainDisplayOnly = [defaults integerForKey:MAIN_DISPLAY_KEY];
 	
 	[glView setWireFrame:mWireFrame];
-	[glView setFSAA:mFSAA];
 
 	float speed = [defaults floatForKey:SPEED_KEY];
 	[[glView getScene] setAnimationSpeed:speed];
