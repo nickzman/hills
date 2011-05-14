@@ -55,7 +55,7 @@
 	scanRange.length = [scanString length];
 	scanRange.location = [scanner scanLocation] - scanRange.length;
 		
-	NSColor *linkColor = [NSColor colorWithCalibratedRed:1.0 green:0.4 blue:0.0 alpha:1.0];
+	NSColor *linkColor = [NSColor colorWithCalibratedRed:1.0f green:0.4f blue:0.0f alpha:1.0f];
 	
 	NSDictionary* linkAttr = [NSDictionary dictionaryWithObjectsAndKeys:
 							[NSNumber numberWithInt:NSSingleUnderlineStyle], NSUnderlineStyleAttributeName,
@@ -84,7 +84,7 @@
 	scanRange.length = [scanString length];
 	scanRange.location = [scanner scanLocation] - scanRange.length;
 		
-	NSColor *linkColor = [NSColor colorWithCalibratedRed:0.0 green:0.0 blue:1.0 alpha:1.0];
+	NSColor *linkColor = [NSColor colorWithCalibratedRed:0.0f green:0.0f blue:1.0f alpha:1.0f];
 
 	NSDictionary* linkAttr = [NSDictionary dictionaryWithObjectsAndKeys:
 							[NSNumber numberWithInt:NSNoUnderlineStyle], NSUnderlineStyleAttributeName,
