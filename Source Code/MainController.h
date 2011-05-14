@@ -19,7 +19,11 @@
 @class HillsOpenGLView;
 @class PrefsController;
 
-@interface MainController : NSResponder
+#ifndef MAC_OS_X_VERSION_10_6
+@protocol NSToolbarDelegate <NSObject> @optional @end
+#endif
+
+@interface MainController : NSResponder <NSToolbarDelegate>
 {
     BOOL isAnimating;
     NSTimer *animationTimer;

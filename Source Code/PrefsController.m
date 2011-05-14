@@ -82,6 +82,7 @@ static NSInteger CompareDisplayModes(id arg1, id arg2, void *context);
 	NSInteger prefs_width = [[NSUserDefaults standardUserDefaults] integerForKey:FULLSCREEN_WIDTH_KEY];
 	NSInteger prefs_height = [[NSUserDefaults standardUserDefaults] integerForKey:FULLSCREEN_HEIGHT_KEY];
 	bool prefs_stretched = [[NSUserDefaults standardUserDefaults] boolForKey:FULLSCREEN_STRETCHED_KEY];
+	SInt32 osVersion;
 	
 	//NSLog(@"Preferences fullscreen resolution: %d x %d", prefs_width, prefs_height);
 
@@ -143,6 +144,14 @@ static NSInteger CompareDisplayModes(id arg1, id arg2, void *context);
 			// Allow for the 'Don't Change' and separator menu items by adding 2
 			[mResolutionPopUpButton selectItemAtIndex:display_modes_index + 2];
 		}
+	}
+	
+	// NZ: Turn off the full screen resolution pop-up if the user is using Leopard or later. We don't currently use this setting on newer versions of Mac OS X.
+	Gestalt(gestaltSystemVersion, &osVersion);
+	if (osVersion >= 0x1050)
+	{
+		[mResolutionPopUpButton setEnabled:NO];
+		[mResolutionPopUpButton setToolTip:NSLocalizedStringFromTable(@"Not enabled because this setting is not used by computers running Mac OS X Leopard or later.", @"Custom", @"Tool tip for the resolution button")];
 	}
 }
 
