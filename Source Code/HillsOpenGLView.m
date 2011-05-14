@@ -108,16 +108,19 @@
 
 - (void) keyDown:(NSEvent *)theEvent
 {
-    [controller keyDown:theEvent];
+	if (controller)
+		[controller keyDown:theEvent];
+	else
+		[super keyDown:theEvent];
 }
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-    mLastClickPoint = [theEvent locationInWindow];
+	mLastClickPoint = [theEvent locationInWindow];
 	mDegreesX = [[scene camera] getXDegrees];
 	mDegreesY = [[scene camera] getYDegrees];
-
-    [controller mouseDown:theEvent];
+	
+	[controller mouseDown:theEvent];
 }
 
 - (void)mouseDragged:(NSEvent *)anEvent
