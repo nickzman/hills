@@ -191,6 +191,9 @@
 
 - (IBAction)closeSheet:(id)sender
 {
+	NSString *identifier = [[NSBundle bundleForClass:[self class]] bundleIdentifier];
+	ScreenSaverDefaults *defaults = [ScreenSaverDefaults defaultsForModuleWithName:identifier]; 
+	
     if ([sender tag]==NSOKButton)
     {
 		[self loadOptions];
@@ -207,7 +210,7 @@
         [self stopAnimation];
         [self startAnimation];
     }
-    
+    [defaults synchronize];
     [NSApp endSheet:mConfigureSheet];
 }
 
@@ -310,7 +313,7 @@
 {
 	float camera_height = [sender floatValue];
 	[mCameraHeightTextField setStringValue:[NSString stringWithFormat:@"%.2f ", camera_height]];
-
+	
 	NSString *identifier = [[NSBundle bundleForClass:[self class]] bundleIdentifier];
 	ScreenSaverDefaults *defaults = [ScreenSaverDefaults defaultsForModuleWithName:identifier];
 	
