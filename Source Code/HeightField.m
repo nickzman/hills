@@ -62,7 +62,7 @@
 	if(filename != nil)
 	{
 		if (NSClassFromString(@"GLKTextureLoader"))
-			mDetailTexture = [[NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL] retain];
+			mDetailTexture = [[NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle bundleForClass:self.class] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL] retain];
 		else
 			mDetailTexture = [[Texture textureWithFile: filename] retain];
 	}
@@ -73,7 +73,7 @@
 	if(filename != nil)
 	{
 		if (NSClassFromString(@"GLKTextureLoader"))
-			mLightTexture = [[NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL] retain];
+			mLightTexture = [[NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle bundleForClass:self.class] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL] retain];
 		else
 			mLightTexture = [[Texture textureWithFile:filename] retain];
 	}
