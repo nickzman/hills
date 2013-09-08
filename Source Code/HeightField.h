@@ -40,8 +40,8 @@ struct vertex
 	
 	NSImage *mHeightImage;
 	
-	Texture *mDetailTexture;
-	Texture *mLightTexture;
+	id mDetailTexture;	// GLKTextureInfo on Mountain Lion, Texture on older cats
+	id mLightTexture;
 	
 	GLuint mListId;
 }

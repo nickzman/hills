@@ -48,7 +48,7 @@
 {
     NSBitmapImageRep	*theImage;
 
-    if (theImage = [NSBitmapImageRep imageRepWithContentsOfFile: bitmapFile])
+    if ((theImage = [NSBitmapImageRep imageRepWithContentsOfFile: bitmapFile]))
     {
         return [self bitmapFromImageRep: theImage]; 
     }
@@ -139,7 +139,7 @@
 
 }
 
-- (GLuint)getId
+- (GLuint)name
 {
 	return mId;
 }

@@ -16,6 +16,7 @@
 
 #import "HeightField.h"
 #import "Texture.h"
+#import <GLKit/GLKit.h>
 
 @interface HeightField (PrivateMethods)
 - (void)loadImage:(NSString *)path;
@@ -59,13 +60,23 @@
 - (void)loadDetailTexture:(NSString*)filename
 {
 	if(filename != nil)
-		mDetailTexture = [[Texture textureWithFile: filename] retain];
+	{
+		if (NSClassFromString(@"GLKTextureLoader"))
+			mDetailTexture = [[NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL] retain];
+		else
+			mDetailTexture = [[Texture textureWithFile: filename] retain];
+	}
 }
 
 - (void)loadLightingTexture:(NSString*)filename
 {
 	if(filename != nil)
-		mLightTexture = [[Texture textureWithFile:filename] retain];
+	{
+		if (NSClassFromString(@"GLKTextureLoader"))
+			mLightTexture = [[NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL] retain];
+		else
+			mLightTexture = [[Texture textureWithFile:filename] retain];
+	}
 }
 
 - (void) loadImage:(NSString *)path
@@ -205,7 +216,9 @@
 		glEnable (GL_TEXTURE_2D);
 
 		glTexCoordPointer (2, GL_FLOAT, sizeof(struct vertex), &mVertices[0].u0);
-		glBindTexture (GL_TEXTURE_2D, [mDetailTexture getId]);
+		glBindTexture (GL_TEXTURE_2D, [(GLKTextureInfo *)mDetailTexture name]);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// change the default properites GLKit sets for wrapping
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glEnableClientState (GL_TEXTURE_COORD_ARRAY);
 		glEnableClientState (GL_VERTEX_ARRAY);
 
@@ -218,7 +231,9 @@
 		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
 		glTexCoordPointer (2, GL_FLOAT, sizeof(struct vertex), &mVertices[0].u1);
-		glBindTexture (GL_TEXTURE_2D, [mLightTexture getId]);
+		glBindTexture (GL_TEXTURE_2D, [(GLKTextureInfo *)mLightTexture name]);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glEnableClientState (GL_TEXTURE_COORD_ARRAY);
 		glEnableClientState (GL_VERTEX_ARRAY);
 
@@ -233,11 +248,12 @@
 		// Half-switch off of Texture Unit 0
 		glActiveTextureARB (GL_TEXTURE0_ARB);
 		glClientActiveTextureARB (GL_TEXTURE0_ARB);
+		glDisable(GL_TEXTURE_2D);
 		glDisableClientState (GL_TEXTURE_COORD_ARRAY);
 		glDisableClientState (GL_VERTEX_ARRAY);
 
 		// Disable texture binding
-		glBindTexture (GL_TEXTURE_2D, -1);
+		//glBindTexture (GL_TEXTURE_2D, -1);
 
 		glEndList();
 	}

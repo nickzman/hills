@@ -36,6 +36,6 @@
 - (BOOL)_loadTexture: (NSString *)bitmapFile;
 - (BOOL)bitmapFromImageRep: (NSBitmapImageRep *)theImage;
 - (void)generateTextureWithBytes: (void *)texBytes refresh: (BOOL)isRefresh;
-- (GLuint)getId;
+- (GLuint)name;
 
 @end

@@ -102,6 +102,7 @@
 		83FB6CC809EE7C6000016801 /* Stop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Stop.tiff; path = Resources/Stop.tiff; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* HillsAppInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = HillsAppInfo.plist; path = Resources/HillsAppInfo.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Hills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hills.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E04FD82017DD1C8200CDEC91 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = ../../../System/Library/Frameworks/GLKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +146,7 @@
 				83642E6809DDEDFA0060F3C4 /* ScreenSaver.framework */,
 				83B1727009D070D00051B62F /* OpenGL.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				E04FD82017DD1C8200CDEC91 /* GLKit.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -505,8 +507,12 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=x86_64]" = (
+					"-weak_framework",
+					GLKit,
+				);
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Debug;
@@ -519,7 +525,11 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				"OTHER_LDFLAGS[arch=x86_64]" = (
+					"-weak_framework",
+					GLKit,
+				);
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Release;
