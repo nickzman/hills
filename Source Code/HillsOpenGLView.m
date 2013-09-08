@@ -67,7 +67,9 @@
         scene = [[Scene alloc] init];
 		
 		[scene setWireFrame:mWireFrame];
-     }
+		if ([self respondsToSelector:@selector(setWantsBestResolutionOpenGLSurface:)])
+			self.wantsBestResolutionOpenGLSurface = YES;
+	}
 	
     return self;
 }
@@ -107,7 +109,10 @@
 
 - (void) reshape
 {
-    [scene setViewportRect:[self bounds]];
+	if ([self respondsToSelector:@selector(convertRectToBacking:)] && self.wantsBestResolutionOpenGLSurface)	// on Lion & later, if best resolution is on, then we need to convert our rect for glViewport()
+		[scene setViewportRect:[self convertRectToBacking:self.bounds]];
+	else
+		[scene setViewportRect:[self bounds]];
 }
 
 - (BOOL) acceptsFirstResponder
