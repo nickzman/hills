@@ -233,7 +233,7 @@
 			glVertex3f(Vertices[i].x, Vertices[i].y, Vertices[i].z);
 		}
 
-		glShadeModel(GL_FLAT);    
+		//glShadeModel(GL_FLAT);
 		glColor3f(1.0f, 1.0f, 1.0f);
 		glEnd();
 
