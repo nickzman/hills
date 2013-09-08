@@ -20,7 +20,7 @@
 #define	deg2rad(x) ((x)*0.0174532925194f)
 #define	rad2deg(x) ((x)*57.295779514719f)
 
-inline SVector cartesianToSpherical(CVector cvec)
+FOUNDATION_STATIC_INLINE SVector cartesianToSpherical(CVector cvec)
 {
     SVector	svec;
 
@@ -33,7 +33,7 @@ inline SVector cartesianToSpherical(CVector cvec)
     return svec;
 }
 
-inline CVector sphericalToCartesian(SVector svec)
+FOUNDATION_STATIC_INLINE CVector sphericalToCartesian(SVector svec)
 {
     CVector	cvec;
 
@@ -44,7 +44,7 @@ inline CVector sphericalToCartesian(SVector svec)
     return cvec;
 }
 
-inline CVector vectorSubtract(const CVector a, const CVector b)
+FOUNDATION_STATIC_INLINE CVector vectorSubtract(const CVector a, const CVector b)
 {
     CVector	r;
 
@@ -55,7 +55,7 @@ inline CVector vectorSubtract(const CVector a, const CVector b)
     return r;
 }
 
-inline CVector vectorAdd(const CVector a, const CVector b)
+FOUNDATION_STATIC_INLINE CVector vectorAdd(const CVector a, const CVector b)
 {
     CVector	r;
 
@@ -66,7 +66,7 @@ inline CVector vectorAdd(const CVector a, const CVector b)
     return r;
 }
 
-inline CVector vectorNormalize(const CVector cvector)
+FOUNDATION_STATIC_INLINE CVector vectorNormalize(const CVector cvector)
 {
     CVector	normalized_vector;
 
@@ -84,7 +84,7 @@ inline CVector vectorNormalize(const CVector cvector)
 	return normalized_vector;
 }
 
-inline CVector vectorScale(const float scale, const CVector cvector)
+FOUNDATION_STATIC_INLINE CVector vectorScale(const float scale, const CVector cvector)
 {
     CVector	scaled_vector;
     
