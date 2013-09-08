@@ -116,7 +116,7 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
 			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 			NSEvent *event;
 			
-			while (event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantPast] inMode:NSDefaultRunLoopMode dequeue:YES])
+			while ((event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantPast] inMode:NSDefaultRunLoopMode dequeue:YES]))
 			{
 				switch ([event type])
 				{
@@ -249,8 +249,8 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
 
         // Check for and process input events.
         NSEvent *event;
-        while (event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantPast]
-						inMode:NSDefaultRunLoopMode dequeue:YES])
+        while ((event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantPast]
+						inMode:NSDefaultRunLoopMode dequeue:YES]))
 		{
             switch ([event type])
 			{
