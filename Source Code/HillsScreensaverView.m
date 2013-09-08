@@ -200,7 +200,10 @@
 
 		NSRect frame = [glView frame];
 		//NSLog(@"%f %f", frame.size.width, frame.size.height);
-		[[glView getScene] setViewportRect:frame];
+		if ([glView respondsToSelector:@selector(convertRectToBacking:)] && glView.wantsBestResolutionOpenGLSurface)
+			[[glView getScene] setViewportRect:[glView convertRectToBacking:frame]];
+		else
+			[[glView getScene] setViewportRect:frame];
     }
     
     mIsConfiguring= NO;
