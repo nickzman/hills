@@ -55,6 +55,7 @@
 		NSOpenGLPFASampleBuffers, (useFSAA ? 1 : 0),
         NSOpenGLPFASamples, (useFSAA ? 2 : 0),
 		NSOpenGLPFAMultisample, (useFSAA ? 1 : 0),
+		NSOpenGLPFAAllowOfflineRenderers,	// necessary to make the OpenGL view work on the integrated GPU
         0
     };
 	
