@@ -31,7 +31,7 @@
 									lightTexture: (NSString *)lightTexture
 									gridsize:(GLsizei) gridsize
 {
-	HeightField *heightField = [[[HeightField alloc] init] autorelease];
+	HeightField *heightField = [[HeightField alloc] init];
 	
 	if(heightField != nil)
 	{
@@ -62,9 +62,9 @@
 	if(filename != nil)
 	{
 		if (NSClassFromString(@"GLKTextureLoader"))
-			mDetailTexture = [[NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle bundleForClass:self.class] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL] retain];
+			mDetailTexture = [NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle bundleForClass:self.class] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL];
 		else
-			mDetailTexture = [[Texture textureWithFile: filename] retain];
+			mDetailTexture = [Texture textureWithFile: filename];
 	}
 }
 
@@ -73,9 +73,9 @@
 	if(filename != nil)
 	{
 		if (NSClassFromString(@"GLKTextureLoader"))
-			mLightTexture = [[NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle bundleForClass:self.class] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL] retain];
+			mLightTexture = [NSClassFromString(@"GLKTextureLoader") textureWithContentsOfFile:[[NSBundle bundleForClass:self.class] pathForResource:filename.stringByDeletingPathExtension ofType:filename.pathExtension] options:@{@"GLKTextureLoaderGenerateMipmaps": @YES} error:NULL];
 		else
-			mLightTexture = [[Texture textureWithFile:filename] retain];
+			mLightTexture = [Texture textureWithFile:filename];
 	}
 }
 
@@ -180,7 +180,6 @@
 				mIndices[j++] = i+1;
 			}
 		}
-		[bitmap release];
 	}
 }
 
@@ -277,12 +276,6 @@
 	
 	if(mIndices)
 		free(mIndices);
-		
-	[mDetailTexture release];
-	[mLightTexture release];
-	[mHeightImage release];
-		
-	[super dealloc];
 }
 
 @end

@@ -38,13 +38,12 @@
 	GLfloat mFogColour[4];
 }
 
-- (id) init;
+- (instancetype) init;
 - (void) setViewportRect:(NSRect)bounds;
 - (void) animate;
 - (void) render;
 - (void) setWireFrame:(bool)wireframe;
 - (BOOL) getWireFrame;
-- (void) dealloc;
 - (void) setAnimationSpeed: (float)speed;
 - (void) setHillsHeight: (float)height;
 - (void) setLookAhead: (float)distance;

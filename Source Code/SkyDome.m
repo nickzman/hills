@@ -250,7 +250,7 @@
 	}
 }
 
-- (void) release
+- (void) dealloc
 {
 	[self deleteList];
 

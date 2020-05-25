@@ -173,8 +173,8 @@ static NSTimeInterval sLastFrameTime = 0.0;
 
 	if(mHeightField == nil)
 	{
-		mHeightField = [[HeightField heightFieldWithFile:@"heightmap.png"
-			detailTexture:@"grass.jpg" lightTexture:@"lightmap.png" gridsize:mGridSize] retain];
+		mHeightField = [HeightField heightFieldWithFile:@"heightmap.png"
+			detailTexture:@"grass.jpg" lightTexture:@"lightmap.png" gridsize:mGridSize];
 	}
 	
 	glPushMatrix(); // Level 2
@@ -284,14 +284,6 @@ static NSTimeInterval sLastFrameTime = 0.0;
 - (BOOL)getAnimate
 {
 	return(mAnimate);
-}
-
-- (void)dealloc
-{
-	[mHeightField release];
-	[mSkyDome release];
-	[mCamera release];
-	[super dealloc];
 }
 
 @end

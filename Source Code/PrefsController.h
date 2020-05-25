@@ -15,7 +15,7 @@
 //	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #import <Cocoa/Cocoa.h>
-#import <HillsOpenGLView.h>
+#import "HillsOpenGLView.h"
 
 @interface PrefsController : NSResponder
 {

@@ -31,10 +31,8 @@ typedef struct
 	GLuint mListId;
 }
 
-- (id) init;
 - (void) generateDome;
 - (void) renderSkyDome;
 - (void)deleteList;
-- (void) release;
 
 @end

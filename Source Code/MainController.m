@@ -113,25 +113,26 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
 		
 		while (stayInFullScreenMode)
 		{
-			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-			NSEvent *event;
-			
-			while ((event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantPast] inMode:NSDefaultRunLoopMode dequeue:YES]))
+			@autoreleasepool
 			{
-				switch ([event type])
+				NSEvent *event;
+				
+				while ((event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantPast] inMode:NSDefaultRunLoopMode dequeue:YES]))
 				{
-					case NSKeyDown:
-						[self keyDown:event];
-						break;
-					case NSLeftMouseDown:
-						// Exit full-screen mode when mouse is clicked
-						stayInFullScreenMode = NO;
-						break;
-					default:
-						break;
+					switch ([event type])
+					{
+						case NSKeyDown:
+							[self keyDown:event];
+							break;
+						case NSLeftMouseDown:
+							// Exit full-screen mode when mouse is clicked
+							stayInFullScreenMode = NO;
+							break;
+						default:
+							break;
+					}
 				}
 			}
-			[pool release];
 		}
 		[mOpenGLView exitFullScreenModeWithOptions:nil];
 		[NSCursor unhide];
@@ -146,9 +147,7 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
 
     // Pixel Format Attributes for the FullScreen NSOpenGLContext
     NSOpenGLPixelFormatAttribute attrs[] = {
-
-        // Specify that we want a full-screen OpenGL context.
-        NSOpenGLPFAFullScreen,
+        NSOpenGLPFAAllowOfflineRenderers,	// allow the integrated GPU
 
         // We may be on a multi-display system (and each screen may be driven by
 		// a different renderer), so we need to specify which screen we want to
@@ -189,7 +188,6 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
 //        return;
 //    }
 
-    [pixelFormat release];
     pixelFormat = nil;
 
     if (fullScreenContext == nil) {
@@ -207,7 +205,6 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
     err = CGCaptureAllDisplays();
 	
     if (err != CGDisplayNoErr) {
-        [fullScreenContext release];
         fullScreenContext = nil;
         return;
     }
@@ -245,34 +242,33 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
     stayInFullScreenMode = YES;
 	
     while (stayInFullScreenMode) {
-        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-        // Check for and process input events.
-        NSEvent *event;
-        while ((event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantPast]
-						inMode:NSDefaultRunLoopMode dequeue:YES]))
+		@autoreleasepool
 		{
-            switch ([event type])
+			// Check for and process input events.
+			NSEvent *event;
+			while ((event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantPast]
+												  inMode:NSDefaultRunLoopMode dequeue:YES]))
 			{
-                case NSKeyDown:
-                    [self keyDown:event];
-                    break;
-
-				case NSLeftMouseDown:
-					// Exit full-screen mode when mouse is clicked
-					stayInFullScreenMode = NO;
-					break;
-					
-                default:
-                    break;
-            }
-        }
-
-        [scene render];
-		
-        [fullScreenContext flushBuffer];
-
-        [pool release];
+				switch ([event type])
+				{
+					case NSKeyDown:
+						[self keyDown:event];
+						break;
+						
+					case NSLeftMouseDown:
+						// Exit full-screen mode when mouse is clicked
+						stayInFullScreenMode = NO;
+						break;
+						
+					default:
+						break;
+				}
+			}
+			
+			[scene render];
+			
+			[fullScreenContext flushBuffer];
+		}
     }
     
     // Clear the front and back framebuffers before switching out of FullScreen mode. 
@@ -289,7 +285,6 @@ static NSString* PrefsToolbarItemIdentifier = @"Prefs Item Identifier";
    // Exit fullscreen mode and release our FullScreen NSOpenGLContext.
     [NSOpenGLContext clearCurrentContext];
     [fullScreenContext clearDrawable];
-    [fullScreenContext release];
     fullScreenContext = nil;
 
     CGDisplayShowCursor(kCGDirectMainDisplay);
@@ -323,7 +318,7 @@ do { \
 
     attributes = malloc(sizeof(*attributes));
 
-    ADD_ATTR(NSOpenGLPFAFullScreen);
+    ADD_ATTR(NSOpenGLPFAAllowOfflineRenderers);
     ADD_ATTR(NSOpenGLPFAColorSize);
     ADD_ATTR(32);
     ADD_ATTR(NSOpenGLPFADepthSize);
@@ -477,7 +472,7 @@ do { \
 - (void) setupToolbar
 {
     // Create a new toolbar instance, and attach it to our document window 
-    NSToolbar *toolbar = [[[NSToolbar alloc] initWithIdentifier: ToolbarIdentifier] autorelease];
+    NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier: ToolbarIdentifier];
     
     // Set up toolbar properties: Allow customization, give a default display mode, and remember state in user defaults 
     [toolbar setAllowsUserCustomization: YES];
@@ -499,7 +494,7 @@ do { \
     	
     if ([itemIdent isEqual: FullScreenToolbarItemIdentifier])
 	{
-        toolbarItem = [[[NSToolbarItem alloc] initWithItemIdentifier: itemIdent] autorelease];
+        toolbarItem = [[NSToolbarItem alloc] initWithItemIdentifier: itemIdent];
 	
 		[toolbarItem setLabel: @"Full Screen"];
 		[toolbarItem setPaletteLabel: @"Full Screen"];
@@ -510,7 +505,7 @@ do { \
     }
 	else if([itemIdent isEqual: StartToolbarItemIdentifier])
 	{
-        toolbarItem = [[[NSToolbarItem alloc] initWithItemIdentifier: itemIdent] autorelease];
+        toolbarItem = [[NSToolbarItem alloc] initWithItemIdentifier: itemIdent];
 	
 		[toolbarItem setLabel: @"Start"];
 		[toolbarItem setPaletteLabel: @"Start"];
@@ -521,7 +516,7 @@ do { \
 	}
 	else if([itemIdent isEqual: StopToolbarItemIdentifier])
 	{
-        toolbarItem = [[[NSToolbarItem alloc] initWithItemIdentifier: itemIdent] autorelease];
+        toolbarItem = [[NSToolbarItem alloc] initWithItemIdentifier: itemIdent];
 	
 		[toolbarItem setLabel: @"Stop"];
 		[toolbarItem setPaletteLabel: @"Stop"];
@@ -532,7 +527,7 @@ do { \
 	}
 	else if([itemIdent isEqual: WireFrameToolbarItemIdentifier])
 	{
-        toolbarItem = [[[NSToolbarItem alloc] initWithItemIdentifier: itemIdent] autorelease];
+        toolbarItem = [[NSToolbarItem alloc] initWithItemIdentifier: itemIdent];
 	
 		[toolbarItem setLabel: @"Wire Frame"];
 		[toolbarItem setPaletteLabel: @"Wire Frame"];
@@ -543,7 +538,7 @@ do { \
 	}
 	else if([itemIdent isEqual: PrefsToolbarItemIdentifier])
 	{
-        toolbarItem = [[[NSToolbarItem alloc] initWithItemIdentifier: itemIdent] autorelease];
+        toolbarItem = [[NSToolbarItem alloc] initWithItemIdentifier: itemIdent];
 	
 		[toolbarItem setLabel: @"Preferences"];
 		[toolbarItem setPaletteLabel: @"Preferences"];
@@ -628,9 +623,9 @@ do { \
 - (void) startAnimationTimer
 {
     if (animationTimer == nil) {
-        animationTimer = [[NSTimer scheduledTimerWithTimeInterval:0.017
+        animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.017
 						target:self selector:@selector(animationTimerFired:)
-						userInfo:nil repeats:YES] retain];
+						userInfo:nil repeats:YES];
     }
 }
 
@@ -638,7 +633,6 @@ do { \
 {
     if (animationTimer != nil) {
         [animationTimer invalidate];
-        [animationTimer release];
         animationTimer = nil;
     }
 }

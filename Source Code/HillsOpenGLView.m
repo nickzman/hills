@@ -59,7 +59,7 @@
         0
     };
 	
-    NSOpenGLPixelFormat* pixelFormat = [[[NSOpenGLPixelFormat alloc] initWithAttributes:attrs] autorelease];
+	NSOpenGLPixelFormat* pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
 	
     self = [super initWithFrame:frameRect pixelFormat:pixelFormat];
 	
@@ -68,17 +68,10 @@
         scene = [[Scene alloc] init];
 		
 		[scene setWireFrame:mWireFrame];
-		if ([self respondsToSelector:@selector(setWantsBestResolutionOpenGLSurface:)])
-			self.wantsBestResolutionOpenGLSurface = YES;
+		self.wantsBestResolutionOpenGLSurface = YES;
 	}
 	
     return self;
-}
-
-- (void)dealloc
-{
-    [scene release];
-    [super dealloc];
 }
 
 - (Scene *)getScene
@@ -110,6 +103,7 @@
 
 - (void) reshape
 {
+	[super reshape];
 	if ([self respondsToSelector:@selector(convertRectToBacking:)] && self.wantsBestResolutionOpenGLSurface)	// on Lion & later, if best resolution is on, then we need to convert our rect for glViewport()
 		[scene setViewportRect:[self convertRectToBacking:self.bounds]];
 	else

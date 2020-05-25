@@ -71,7 +71,7 @@ static NSInteger CompareDisplayModes(id arg1, id arg2, void *context);
 	
 	[mFogColourButton setColor:fog_colour];
 	
-    mOriginalDisplayMode = [(NSDictionary *)CGDisplayCurrentMode(kCGDirectMainDisplay) retain];
+    mOriginalDisplayMode = (NSDictionary *)CGDisplayCurrentMode(kCGDirectMainDisplay);
 	//NSLog(@"%@", mOriginalDisplayMode);
 
 	[self createResolutionMenu];
@@ -87,7 +87,7 @@ static NSInteger CompareDisplayModes(id arg1, id arg2, void *context);
 	//NSLog(@"Preferences fullscreen resolution: %d x %d", prefs_width, prefs_height);
 
 	// Get the list of all available modes
-    NSArray *all_display_modes = [(NSArray *)CGDisplayAvailableModes(kCGDirectMainDisplay) retain];
+    NSArray *all_display_modes = (NSArray *)CGDisplayAvailableModes(kCGDirectMainDisplay);
 	//NSLog(@"Display modes: %@", mDisplayModes);
 	
 	NSUInteger all_display_modes_size = [all_display_modes count];
