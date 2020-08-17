@@ -43,7 +43,7 @@
 {
 #pragma unused(theEvent)
 	NSAttributedString *atStr = [self attributedStringValue];
-	NSMutableAttributedString *matString = [atStr mutableCopyWithZone:[self zone]];
+	NSMutableAttributedString *matString = [atStr mutableCopy];
 
 	NSString *scanString;
 	NSRange scanRange;
@@ -64,15 +64,13 @@
 	[matString addAttributes:linkAttr range:scanRange];
 	
 	[self setAttributedStringValue:matString];
-	
-	[matString release];
 }
 
 - (void)mouseExited:(NSEvent *)theEvent
 {
 #pragma unused(theEvent)
 	NSAttributedString *atStr = [self attributedStringValue];
-	NSMutableAttributedString *matString = [atStr mutableCopyWithZone:[self zone]];
+	NSMutableAttributedString *matString = [atStr mutableCopy];
 
 	NSString*					scanString;
 	NSRange						scanRange;
@@ -93,8 +91,6 @@
 	[matString addAttributes:linkAttr range:scanRange];
 	
 	[self setAttributedStringValue:matString];
-	
-	[matString release];
 }
 
 - (void)resetCursorRects
