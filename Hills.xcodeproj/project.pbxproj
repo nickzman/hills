@@ -48,6 +48,8 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		E04FD82417DD3BEF00CDEC91 /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = E04FD82317DD3BEF00CDEC91 /* thumbnail.png */; };
+		E07EAEA524EAE70A00D01C85 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04FD82017DD1C8200CDEC91 /* GLKit.framework */; };
+		E07EAEA624EAE70B00D01C85 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04FD82017DD1C8200CDEC91 /* GLKit.framework */; };
 		E0AFC764247C27190078F800 /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AFC766247C27190078F800 /* ConfigureSheet.xib */; };
 		E0AFC769247C28B80078F800 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AFC767247C28B80078F800 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
@@ -85,7 +87,7 @@
 		83642FC709DDF0FE0060F3C4 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		83B1724E09D0701F0051B62F /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MainController.h; path = "Source Code/MainController.h"; sourceTree = "<group>"; };
 		83B1724F09D0701F0051B62F /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = MainController.m; path = "Source Code/MainController.m"; sourceTree = "<group>"; };
-		83B1727009D070D00051B62F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = SOURCE_ROOT; };
+		83B1727009D070D00051B62F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		83B172A209D071AD0051B62F /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = AppIcon.icns; path = Resources/AppIcon.icns; sourceTree = SOURCE_ROOT; };
 		83B172A309D071AD0051B62F /* grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grass.jpg; path = Resources/grass.jpg; sourceTree = SOURCE_ROOT; };
 		83B172A409D071AD0051B62F /* heightmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heightmap.png; path = Resources/heightmap.png; sourceTree = SOURCE_ROOT; };
@@ -101,7 +103,7 @@
 		8D1107320486CEB800E47090 /* Hills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04DEFE4245130BE00E90E8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Custom.strings; sourceTree = "<group>"; };
 		E04DEFE5245130BE00E90E8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E04FD82017DD1C8200CDEC91 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = ../../../System/Library/Frameworks/GLKit.framework; sourceTree = "<group>"; };
+		E04FD82017DD1C8200CDEC91 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = /System/Library/Frameworks/GLKit.framework; sourceTree = "<absolute>"; };
 		E04FD82317DD3BEF00CDEC91 /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail.png; sourceTree = "<group>"; };
 		E0AFC765247C27190078F800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigureSheet.xib; sourceTree = "<group>"; };
 		E0AFC768247C28B80078F800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				83642E6009DDEDC70060F3C4 /* OpenGL.framework in Frameworks */,
 				83642E6909DDEDFA0060F3C4 /* ScreenSaver.framework in Frameworks */,
 				83642E9209DDF0AD0060F3C4 /* Cocoa.framework in Frameworks */,
+				E07EAEA624EAE70B00D01C85 /* GLKit.framework in Frameworks */,
 				83642FC809DDF0FE0060F3C4 /* AGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				E07EAEA524EAE70A00D01C85 /* GLKit.framework in Frameworks */,
 				83B1727109D070D00051B62F /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,10 +548,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
-				"OTHER_LDFLAGS[arch=x86_64]" = (
-					"-weak_framework",
-					GLKit,
-				);
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wmost";
 			};
@@ -585,10 +585,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				"OTHER_LDFLAGS[arch=x86_64]" = (
-					"-weak_framework",
-					GLKit,
-				);
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wmost";
 			};
