@@ -18,7 +18,6 @@
 // and converted to Objective-C.
 
 #import "SkyDome.h"
-#import "Texture.h"
 
 #define DTOR ((float)M_PI/180.0f)
 #define SQR(x) (x*x)

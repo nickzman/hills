@@ -20,10 +20,8 @@
 		83642E2809DDEC590060F3C4 /* HillsScreensaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E2609DDEC590060F3C4 /* HillsScreensaverView.m */; };
 		83642E3309DDECB70060F3C4 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E2F09DDECB70060F3C4 /* Scene.m */; };
 		83642E3409DDECB70060F3C4 /* HeightField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3109DDECB70060F3C4 /* HeightField.m */; };
-		83642E3509DDECB70060F3C4 /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3209DDECB70060F3C4 /* Texture.m */; };
 		83642E3609DDECB70060F3C4 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E2F09DDECB70060F3C4 /* Scene.m */; };
 		83642E3709DDECB70060F3C4 /* HeightField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3109DDECB70060F3C4 /* HeightField.m */; };
-		83642E3809DDECB70060F3C4 /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3209DDECB70060F3C4 /* Texture.m */; };
 		83642E3E09DDED120060F3C4 /* HillsOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3B09DDED120060F3C4 /* HillsOpenGLView.m */; };
 		83642E4009DDED120060F3C4 /* HillsOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83642E3B09DDED120060F3C4 /* HillsOpenGLView.m */; };
 		83642E6009DDEDC70060F3C4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B1727009D070D00051B62F /* OpenGL.framework */; };
@@ -76,11 +74,9 @@
 		83642E2509DDEC590060F3C4 /* HillsScreensaverView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = HillsScreensaverView.h; path = "Source Code/HillsScreensaverView.h"; sourceTree = "<group>"; };
 		83642E2609DDEC590060F3C4 /* HillsScreensaverView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = HillsScreensaverView.m; path = "Source Code/HillsScreensaverView.m"; sourceTree = "<group>"; };
 		83642E2D09DDECB70060F3C4 /* HeightField.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = HeightField.h; path = "Source Code/HeightField.h"; sourceTree = "<group>"; };
-		83642E2E09DDECB70060F3C4 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = "Source Code/Texture.h"; sourceTree = "<group>"; };
 		83642E2F09DDECB70060F3C4 /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = Scene.m; path = "Source Code/Scene.m"; sourceTree = "<group>"; };
 		83642E3009DDECB70060F3C4 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Scene.h; path = "Source Code/Scene.h"; sourceTree = "<group>"; };
 		83642E3109DDECB70060F3C4 /* HeightField.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = HeightField.m; path = "Source Code/HeightField.m"; sourceTree = "<group>"; };
-		83642E3209DDECB70060F3C4 /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = Texture.m; path = "Source Code/Texture.m"; sourceTree = "<group>"; };
 		83642E3B09DDED120060F3C4 /* HillsOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = HillsOpenGLView.m; path = "Source Code/HillsOpenGLView.m"; sourceTree = "<group>"; };
 		83642E3C09DDED120060F3C4 /* HillsOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = HillsOpenGLView.h; path = "Source Code/HillsOpenGLView.h"; sourceTree = "<group>"; };
 		83642E6809DDEDFA0060F3C4 /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = /System/Library/Frameworks/ScreenSaver.framework; sourceTree = "<absolute>"; };
@@ -266,8 +262,6 @@
 				8305B7F209FCE33C000A8C93 /* SkyDome.m */,
 				83642E2D09DDECB70060F3C4 /* HeightField.h */,
 				83642E3109DDECB70060F3C4 /* HeightField.m */,
-				83642E2E09DDECB70060F3C4 /* Texture.h */,
-				83642E3209DDECB70060F3C4 /* Texture.m */,
 				83642E3C09DDED120060F3C4 /* HillsOpenGLView.h */,
 				83642E3B09DDED120060F3C4 /* HillsOpenGLView.m */,
 			);
@@ -383,7 +377,6 @@
 				83642E2809DDEC590060F3C4 /* HillsScreensaverView.m in Sources */,
 				83642E3309DDECB70060F3C4 /* Scene.m in Sources */,
 				83642E3409DDECB70060F3C4 /* HeightField.m in Sources */,
-				83642E3509DDECB70060F3C4 /* Texture.m in Sources */,
 				83642E3E09DDED120060F3C4 /* HillsOpenGLView.m in Sources */,
 				83642E8809DDEF9B0060F3C4 /* main.m in Sources */,
 				8304E91B09F0FFFE00C7AFEB /* Camera.m in Sources */,
@@ -399,7 +392,6 @@
 				83B1725809D0701F0051B62F /* MainController.m in Sources */,
 				83642E3609DDECB70060F3C4 /* Scene.m in Sources */,
 				83642E3709DDECB70060F3C4 /* HeightField.m in Sources */,
-				83642E3809DDECB70060F3C4 /* Texture.m in Sources */,
 				83642E4009DDED120060F3C4 /* HillsOpenGLView.m in Sources */,
 				8304E91A09F0FFFE00C7AFEB /* Camera.m in Sources */,
 				83E75C2309F55BEA00C9B5C4 /* PrefsController.m in Sources */,

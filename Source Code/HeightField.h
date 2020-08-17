@@ -16,6 +16,7 @@
 
 #import <OpenGL/glu.h>
 #import <Cocoa/Cocoa.h>
+#import <GLKit/GLKit.h>
 
 @class Texture;
 
@@ -40,8 +41,8 @@ struct vertex
 	
 	NSImage *mHeightImage;
 	
-	id mDetailTexture;	// GLKTextureInfo on Mountain Lion, Texture on older cats
-	id mLightTexture;
+	GLKTextureInfo *mDetailTexture;
+	GLKTextureInfo *mLightTexture;
 	
 	GLuint mListId;
 }
