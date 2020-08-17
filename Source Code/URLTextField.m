@@ -58,7 +58,7 @@
 	NSColor *linkColor = [NSColor colorWithCalibratedRed:1.0f green:0.4f blue:0.0f alpha:1.0f];
 	
 	NSDictionary* linkAttr = [NSDictionary dictionaryWithObjectsAndKeys:
-							[NSNumber numberWithInt:NSSingleUnderlineStyle], NSUnderlineStyleAttributeName,
+							[NSNumber numberWithInteger:NSUnderlineStyleSingle], NSUnderlineStyleAttributeName,
 							linkColor, NSForegroundColorAttributeName, NULL ];
 							
 	[matString addAttributes:linkAttr range:scanRange];
@@ -87,7 +87,7 @@
 	NSColor *linkColor = [NSColor colorWithCalibratedRed:0.0f green:0.0f blue:1.0f alpha:1.0f];
 
 	NSDictionary* linkAttr = [NSDictionary dictionaryWithObjectsAndKeys:
-							[NSNumber numberWithInt:NSNoUnderlineStyle], NSUnderlineStyleAttributeName,
+							[NSNumber numberWithInteger:NSUnderlineStyleNone], NSUnderlineStyleAttributeName,
 							linkColor, NSForegroundColorAttributeName, NULL ];
 							
 	[matString addAttributes:linkAttr range:scanRange];
