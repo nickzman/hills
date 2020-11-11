@@ -131,7 +131,7 @@
     mIsConfiguring = YES;
     
     if (mConfigureSheet == nil)
-		[[NSBundle mainBundle] loadNibNamed:@"ConfigureSheet" owner:self topLevelObjects:NULL];
+		[[NSBundle bundleForClass:self.class] loadNibNamed:@"ConfigureSheet" owner:self topLevelObjects:NULL];
     
 	if (mConfigureSheet != nil)
 	{
